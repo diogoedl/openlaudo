@@ -4,9 +4,7 @@ new Vue({
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: 'Macaron', src: 'https://res.cloudinary.com/landry-bete/image/upload/v1488769144/dessert14_trnhnj.jpg', description:'Is this thing French ?'},
-     { title: 'Tajine', src: 'https://res.cloudinary.com/landry-bete/image/upload/v1525135352/tajine_mfnbd8.jpg', description:'Moroccan people seem to love that dish...'},
-      { title: 'Cake', src: 'https://res.cloudinary.com/landry-bete/image/upload/v1525135530/cake_lnh2hn.jpg', description:'Eat healthy my boy!'},
+      { title: 'Ultrasound clicks', src: 'ultrasound_icon.png', description:'...'}
     ]
   }
   })
@@ -159,6 +157,56 @@ new Vue( {
     }
   }
 });
+
+
+
+
+
+
+// FILTER FUNCTION  FILTER FUNCTION
+
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("descriptors_ul");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+  }
+}
+
+function format_descriptor(text) {
+
+  selectionIndex = quill.getSelection().index;
+
+  quill.insertText(selectionIndex, text);
+
+}
+
+
+
+new Vue( {
+el: '#descriptors_ul',
+  data: {
+    v_descriptors : descriptors.cep.tc
+  },
+
+  methods : {
+    format_descriptor : format_descriptor
+  }
+});
+
+
+
+
+
+
 
 
 

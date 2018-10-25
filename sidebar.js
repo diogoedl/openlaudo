@@ -50,51 +50,115 @@ var quill = new Quill('#editor', {
   });
 
   
-
-
-
-
-
-
-
-
-
-
-
-
-// TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE
-// TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE TEMPLATES AND MORE
-
-
-
-  $('#usg_abdome_total').click(function() {
-      report_template(templates.usg_abdome_total.title, '', templates.usg_abdome_total.corpo, templates.usg_abdome_total.conc);
-    });
-  $('#usg_abdome_superior').click(function() {
-    report_template(templates.usg_abdome_superior.title, '', templates.usg_abdome_superior.corpo, templates.usg_abdome_superior.conc);
-    });
-  
-  
-  
-  function report_template(reportTitle, reportTecnique, reportBody, reportConc) {
+  function format_template(exam) {
     tecniqueTitle = '';
-    if (reportTecnique) {
+    if (exam.reportTecnique) {
       tecniqueTitle = "Técnica\n";
     }
     
     quill.setContents([
-        { insert: reportTitle + '\n', attributes: {bold: true, align: 'center'} },
+        { insert: exam.title + '\n', attributes: {bold: true, align: 'center'} },
         { insert: tecniqueTitle, attributes: {bold: true, align: 'justify'} },
-        { insert: reportTecnique + '\n'},
-        { insert: reportBody + '\n\n', attributes: {align: 'justify'}},
+        { insert: exam.tecnique + '\n'},
+        { insert: exam.body + '\n\n', attributes: {align: 'justify'}},
         { insert : 'Conclusão:\n', attributes : {bold: true} },
-        { insert: reportConc}
+        { insert: exam.conc}
       ]);
   }
-  
-  
 
 
+
+
+
+
+
+
+
+
+
+
+// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
+// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
+// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
+
+
+
+  // $('#usg_abdome_total').click(function() {
+  //     format_template(templates.usg_abdome_total.title, '', templates.usg_abdome_total.corpo, templates.usg_abdome_total.conc);
+  //   });
+  // $('#usg_abdome_superior').click(function() {
+  //   format_template(templates.usg_abdome_superior.title, '', templates.usg_abdome_superior.corpo, templates.usg_abdome_superior.conc);
+  //   });
+  
+    // iterate over specialties inside modality
+    for(specialty in templates.usg) {
+      // iterate over exams inside specialty
+      for (exam in specialty.mascaras) {
+        
+      }
+    }
+    
+    new Vue({
+      el: '#usg_triggers',
+      data: {
+        modality: templates.usg
+      }
+    });
+  
+  
+  new Vue({
+       el: '#tc_triggers',
+       data: {
+         modality: templates.tc
+       }
+     });
+
+    new Vue({
+      el: '#rm_triggers',
+      data: {
+        modality: templates.rm
+      }
+    });
+
+
+
+        
+new Vue( {
+  el: '#usg_dropdowns',
+  data : {
+    modality : templates.usg
+  },
+  methods : {
+    html_format_template : function (exam) {
+      format_template(exam);
+    }
+  }
+});
+
+    
+new Vue( {
+  el: '#tc_dropdowns',
+  data : {
+    modality : templates.tc
+  },
+  methods : {
+    html_format_template : function (exam) {
+      format_template(exam);
+    }
+  }
+});
+
+new Vue( {
+  el: '#rm_dropdowns',
+  data : {
+    modality : templates.rm
+  },
+  methods : {
+    html_format_template : function (exam) {
+      format_template(exam);
+    }
+  }
+});
 
 
 

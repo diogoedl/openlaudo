@@ -1,6 +1,7 @@
 <head>
 
-  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
   <!-- Include stylesheet -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -28,126 +29,97 @@
   <!-- Create the editor container -->
 <div id="container">
 
-<!-- NAV BAR -->
-  <!-- Dropdown Structure -->
+<!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR -->
+<!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR -->
+<!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR --><!-- NAV BAR -->
 
-  <!-- USG USG USG -->
-  <!-- USG USG USG -->
+<!-- These divs list the groups of each modality dropdowns. Each modality has many groups, each group is a specialty, ie each group is its self a list of the dropdown options for each specialty. These groups are the target of the dropdown triggers bellow -->
 
-  <!-- ABDOME -->
-  <ul id="dropdown_abdome_usg" class="dropdown-content">
-    <li><a id="usg_abdome_total" href="#">Abdome Total</a></li>
-    <li><a id="usg_abdome_superior" href="#!">Abdome Superior</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Aparelho Urinário</a></li>
-    <li><a href="#!">Próstata</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Transvaginal</a></li>
-    <li><a href="#!">Pélvico (suprapúbico)</a></li>
+  <!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG -->
+  <!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG --><!-- USG USG USG -->
+
+
+  <div id="usg_dropdowns">
+      <ul v-for="specialty in modality" v-bind:id="specialty.metadata.specialty_id" class="dropdown-content">
+        <li v-for="exam in specialty.mascaras">
+          <a href="#!" v-on:click="html_format_template(exam)">{{exam.nickname}}</a>
+        </li>
+      </ul>
+    </div>
+
+
+      <!-- TC TC TC --><!-- DROPDOWN DROPDOWN DROPDOWN DROPDOWN --><!-- TC TC TC --><!-- TC TC TC -->
+      <!-- TC TC TC --><!-- DROPDOWN DROPDOWN DROPDOWN DROPDOWN --><!-- TC TC TC --><!-- TC TC TC -->
+
+<div id="tc_dropdowns">
+  <ul v-for="specialty in modality" v-bind:id="specialty.metadata.specialty_id" class="dropdown-content">
+    <li v-for="exam in specialty.mascaras">
+      <a href="#!" v-on:click="html_format_template(exam)">{{exam.nickname}}</a>
+    </li>
   </ul>
-  <!-- OBSTÉTRICO -->
-  <ul id="dropdown_obstetrico_usg" class="dropdown-content">
-    <li><a href="#!">1º Trimestre</a></li>
-    <li><a href="#!">2º/3º Trimestre</a></li>
-  </ul>
-  <!-- MSK -->
-  <ul id="dropdown_msk_usg" class="dropdown-content">
-    <li><a href="#!">Ombro</a></li>
-    <li><a href="#!">Joelho</a></li>
-    <li><a href="#!">Punho</a></li>
-  </ul>
-  <!-- VASCULAR -->
-  <ul id="dropdown_vascular_usg" class="dropdown-content">
-    <li><a href="#!">Venoso TVP</a></li>
-    <li><a href="#!">Venoso Varizes</a></li>
-    <li><a href="#!">Arterial MMII</a></li>
-  </ul>
-
-      <!-- TC TC TC -->
-
-  <!-- ABDOME -->
-  <ul id="dropdown_abdome_tc" class="dropdown-content">
-      <li><a href="#!">Abdome superior e pelve</a></li>
-    </ul>
-    <!-- MSK -->
-    <ul id="dropdown_msk_tc" class="dropdown-content">
-      <li><a href="#!">Ombro</a></li>
-      <li><a href="#!">Joelho</a></li>
-      <li><a href="#!">Punho</a></li>
-    </ul>
-    <!-- VASCULAR -->
-    <ul id="dropdown_vascular_tc" class="dropdown-content">
-      <li><a href="#!">AngioTC MMII</a></li>
-      <li><a href="#!">AngioTC Aorta total</a></li>
-    </ul>
-
-
-  <!-- RM RM RM -->
-
-  <!-- ABDOME -->
-  <ul id="dropdown_abdome_rm" class="dropdown-content">
-      <li><a href="#!">Abdome superior e pelve</a></li>
-      <li><a href="#!">Abdome Superior</a></li>
-      <li><a href="#!">Pelve feminina</a></li>
-    </ul>
-    <!-- MSK -->
-    <ul id="dropdown_msk_rm" class="dropdown-content">
-      <li><a href="#!">Ombro</a></li>
-      <li><a href="#!">Ombro (artro)</a></li>
-      <li><a href="#!">Punho</a></li>
-    </ul>
-    <!-- VASCULAR -->
-    <ul id="dropdown_vascular_rm" class="dropdown-content">
-      <li><a href="#!">Angioressonância MMII</a></li>
-    </ul>
-
-
-
-
-
-
+</div>
   
 
-  <!-- NAV BAR NAV BAR NAV BAR NAV BAR NAV BAR-->
+  <!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM -->
+  <!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM --><!-- RM RM RM -->
+
+  <div id="rm_dropdowns">
+      <ul v-for="specialty in modality" v-bind:id="specialty.metadata.specialty_id" class="dropdown-content">
+        <li v-for="exam in specialty.mascaras">
+          <a href="#!" v-on:click="html_format_template(exam)">{{exam.nickname}}</a>
+        </li>
+      </ul>
+    </div>
+
+
+
+  <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
+  <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
+  <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
+
+  <!-- Theses <nav>s  are lists (one for each modality) that hold all the specialties available for them, and each specialt is a trigger whose target are the dropdown classes above, ie, the lists of exams. -->
+
+  <!-- NAV BAR USG USG USG USG USG USG USG  TRIGGERS-->
   
-  <!-- NAV BAR USG USG USG USG USG USG USG -->
   <nav id=nav_usg>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo right">Open Reporting</a>
-      <ul class="left hide-on-med-and-down">
-        <!-- Dropdown Triggers -->
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_abdome_usg">Abdome</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_obstetrico_usg">Obstétrico</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_msk_usg">Msk</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_vascular_usg">Vascular</a></li>
-      </ul>
-    </div>
-  </nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo right">Open Reporting</a>
+        <ul id="usg_triggers" class="left hide-on-med-and-down">
+          <!-- Dropdown Triggers -->
+          <li v-for="specialty in modality">
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- NAV BAR TC TC TC TC TC TC TC TC -->
+
+
+  <!-- NAV BAR TC TC TC TC TC TC TC TC TRIGGERS -->
   <nav id=nav_tc>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo right">Open Reporting</a>
-      <ul class="left hide-on-med-and-down">
-        <!-- Dropdown Triggers -->
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_abdome_tc">Abdome</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_msk_tc">Msk</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_vascular_tc">Vascular</a></li>
-      </ul>
-    </div>
-  </nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo right">Open Reporting</a>
+        <ul id="tc_triggers" class="left hide-on-med-and-down">
+          <!-- Dropdown Triggers -->
+          <li v-for="specialty in modality">
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   
-  <!-- NAV BAR TC TC TC TC TC TC TC TC -->
+  
+  <!-- NAV BAR RM RM RM RM RM RM RM RM RM RM  TRIGGERS -->
   <nav id=nav_rm>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo right">Open Reporting</a>
-      <ul class="left hide-on-med-and-down">
-        <!-- Dropdown Triggers -->
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_abdome_rm">Abdome</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_msk_rm">Msk</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown_vascular_rm">Vascular</a></li>
-      </ul>
-    </div>
+        <a href="#!" class="brand-logo right">Open Reporting</a>
+        <ul id="rm_triggers" class="left hide-on-med-and-down">
+          <!-- Dropdown Triggers -->
+          <li v-for="specialty in modality">
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+          </li>
+        </ul>
+      </div>
   </nav>
   
 

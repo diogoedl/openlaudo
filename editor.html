@@ -89,7 +89,7 @@
         <ul id="usg_triggers" class="left hide-on-med-and-down">
           <!-- Dropdown Triggers -->
           <li v-for="specialty in modality">
-            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id" v-bind:name="specialty.metadata.specialty_name" v-on:click="change_specialty(specialty.metadata.specialty_name)">{{specialty.metadata.specialty_nickname}}</a>
           </li>
         </ul>
       </div>
@@ -104,7 +104,7 @@
         <ul id="tc_triggers" class="left hide-on-med-and-down">
           <!-- Dropdown Triggers -->
           <li v-for="specialty in modality">
-            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id" v-on:click="change_specialty(specialty.metadata.specialty_name)">{{specialty.metadata.specialty_nickname}}</a>
           </li>
         </ul>
       </div>
@@ -118,7 +118,7 @@
         <ul id="rm_triggers" class="left hide-on-med-and-down">
           <!-- Dropdown Triggers -->
           <li v-for="specialty in modality">
-            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id">{{specialty.metadata.specialty_nickname}}</a>
+            <a href="#!" class="dropdown-trigger" v-bind:data-target="specialty.metadata.specialty_id" v-on:click="change_specialty(specialty.metadata.specialty_name)">{{specialty.metadata.specialty_nickname}}</a>
           </li>
         </ul>
       </div>
@@ -129,10 +129,10 @@
 
   <!-- EXAM TYPE SELECTOR -->
   <div class="row">
-      <ul class="tabs">
-        <li class="tab"><a href="#nav_usg">USG</a></li>
-        <li class="tab"><a href="#nav_tc">TC</a></li>
-        <li class="tab"><a href="#nav_rm">RM</a></li>
+      <ul class="tabs" id="modality_selector">
+        <li class="tab"><a href="#nav_usg" onclick="v_descriptors_ul.set_modality('usg')">USG</a></li>
+        <li class="tab"><a href="#nav_tc"   onclick="v_descriptors_ul.set_modality('tc')">TC</a></li>
+        <li class="tab"><a href="#nav_rm" onclick="v_descriptors_ul.set_modality('rm')">RM</a></li>
       </ul>
     </div>
 
@@ -162,8 +162,8 @@
 
       <ul id="descriptors_ul">
         <li v-for="descriptor in v_descriptors">
-          <a href="#!" v-on:dblclick="format_descriptor(descriptor.body)"><b>{{descriptor.title}}</b></a>
-          <a href="#!" v-on:dblclick="format_descriptor(descriptor.body)"><br> {{descriptor.body}}</a>
+          <a href="#!" v-on:click="format_descriptor(descriptor.body)"><b>{{descriptor.title}}</b></a>
+          <p href="#!" v-on:dblclick="format_descriptor(descriptor.body)"> {{descriptor.body}}</p>
           
         </li>
       </ul>

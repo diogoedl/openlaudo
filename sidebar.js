@@ -4,7 +4,7 @@ new Vue({
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: 'Ultrasound clicks', src: 'ultrasound_icon.png', description:'...'}
+      { title: 'Open Clicks', src: 'ultrasound_icon.png', description:'...'}
     ]
   }
   })
@@ -79,52 +79,59 @@ var quill = new Quill('#editor', {
 // TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
 // TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
 
-
-
-  // $('#usg_abdome_total').click(function() {
-  //     format_template(templates.usg_abdome_total.title, '', templates.usg_abdome_total.corpo, templates.usg_abdome_total.conc);
-  //   });
-  // $('#usg_abdome_superior').click(function() {
-  //   format_template(templates.usg_abdome_superior.title, '', templates.usg_abdome_superior.corpo, templates.usg_abdome_superior.conc);
-  //   });
-  
-    // iterate over specialties inside modality
-    for(specialty in templates.usg) {
-      // iterate over exams inside specialty
-      for (exam in specialty.mascaras) {
-        
-      }
-    }
+    // TRIGGERS TRIGGERS TRIGGERS
+    // TRIGGERS TRIGGERS TRIGGERS
     
     new Vue({
       el: '#usg_triggers',
       data: {
-        modality: templates.usg
+        modality: templates.usg.specialties,
+      },
+      methods : {
+        change_specialty : function(specialty) {
+          v_descriptors_ul.set_specialty(specialty);
+        }
       }
+
     });
   
   
   new Vue({
        el: '#tc_triggers',
        data: {
-         modality: templates.tc
+         modality: templates.tc.specialties
+       },
+       methods : {
+         change_specialty : function(specialty) {
+           v_descriptors_ul.set_specialty(specialty);
+         }
        }
+
+
      });
 
     new Vue({
       el: '#rm_triggers',
       data: {
-        modality: templates.rm
+        modality: templates.rm.specialties
+      },
+      methods : {
+        change_specialty : function(specialty) {
+          v_descriptors_ul.set_specialty(specialty);
+        }
       }
+      
     });
 
 
 
-        
+    // DROPDOWNDS DROPDOWNDS DROPDOWNDS
+    // DROPDOWNDS DROPDOWNDS DROPDOWNDS
+
 new Vue( {
   el: '#usg_dropdowns',
   data : {
-    modality : templates.usg
+    modality : templates.usg.specialties
   },
   methods : {
     html_format_template : function (exam) {
@@ -137,7 +144,7 @@ new Vue( {
 new Vue( {
   el: '#tc_dropdowns',
   data : {
-    modality : templates.tc
+    modality : templates.tc.specialties
   },
   methods : {
     html_format_template : function (exam) {
@@ -149,7 +156,7 @@ new Vue( {
 new Vue( {
   el: '#rm_dropdowns',
   data : {
-    modality : templates.rm
+    modality : templates.rm.specialties
   },
   methods : {
     html_format_template : function (exam) {
@@ -159,11 +166,19 @@ new Vue( {
 });
 
 
+// MODALITY SELECTORS MODALITY SELECTORS
+// MODALITY SELECTORS MODALITY SELECTORS
 
 
 
 
-// FILTER FUNCTION  FILTER FUNCTION
+
+
+
+// DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
+// DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
+// DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
+
 
 function myFunction() {
   var input, filter, ul, li, a, i;
@@ -183,7 +198,15 @@ function myFunction() {
 
 function format_descriptor(text) {
 
-  selectionIndex = quill.getSelection().index;
+  try {
+    selectionIndex = quill.getSelection().index;
+  }
+  catch(err) {
+    quill.focus();
+    selectionIndex = quill.getSelection().index;
+    console.warn(err);
+  }
+    
 
   quill.insertText(selectionIndex, text);
 
@@ -191,20 +214,35 @@ function format_descriptor(text) {
 
 
 
-new Vue( {
-el: '#descriptors_ul',
+v_descriptors_ul = new Vue( {
+  el: '#descriptors_ul',
   data: {
-    v_descriptors : descriptors.cep.tc
+    selected_modality : 'tc',
+    selected_specialty : 'cep',
+    v_descriptors : descriptors.cep.modalities.tc.findings
   },
 
   methods : {
-    format_descriptor : format_descriptor
-  }
+    
+    format_descriptor : format_descriptor,
+
+    set_modality : function(new_modality) {
+      this.selected_modality = new_modality;
+      this.v_descriptors = descriptors[this.selected_specialty].modalities[this.selected_modality].findings;
+    },
+
+    set_specialty : function(new_specialty) {
+      this.selected_specialty = new_specialty;
+      this.v_descriptors = descriptors[this.selected_specialty].modalities[this.selected_modality].findings;
+    }
+
+  },
+
 });
 
-
-
-
+function update_descriptors(specific_descriptors) {
+  v_descriptors_ul.v_descriptors = specific_descriptors;
+}
 
 
 

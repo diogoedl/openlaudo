@@ -149,15 +149,53 @@
       </div>
     </div>
     
-    <!-- FINDINGS DESCRIPTORS -->
+    <!-- FORMS CLICKS -->
     <div class="col-5">
       <ul id="app" class="collapsible popout">
         <li v-for="card in cards" :key="card.title">
           <div class="collapsible-header "><img :src="card.src" class="circle vignette "><span class="headline white--text" v-text="card.title"></span></div>
-          <div class="collapsible-body white"><span class="headline white--text" v-text="card.description"></span></div>
+          <div class="collapsible-body white"><span class="headline white--text" v-text="card.description"></span>
+            <form id="rendered-form"><div class="rendered-form"><div class=""><h1 id="control-4928516">2º/3º trimestre</h1></div>
+              <div class="fb-number form-group field-form_dbp">
+                <label for="form_dbp" class="fb-number-label">DBP</label>
+                <input type="number" placeholder="cm" class="form-control" name="form_dbp" step="0.1" id="form_dbp"></div>
+                <div class="fb-number form-group field-form_cc">
+                  <label for="form_cc" class="fb-number-label">CC</label>
+                  <input type="number" placeholder="cm" class="form-control" name="form_cc" step="0.1" id="form_cc"></div>
+                  <div class="fb-number form-group field-form_ca">
+                    <label for="form_ca" class="fb-number-label">CA</label>
+                    <input type="number" placeholder="cm" class="form-control" name="form_ca" step="0.1" id="form_ca"></div>
+                    <div class="fb-number form-group field-form_cf">
+                      <label for="form_cf" class="fb-number-label">CF</label>
+                      <input type="number" placeholder="cm" class="form-control" name="form_cf" step="0.1" id="form_cf"></div>
+                      <div class="fb-number form-group field-form_bcf">
+                        <label for="form_bcf" class="fb-number-label">BCF</label>
+                        <input type="number" placeholder="cm" class="form-control" name="form_bcf" step="1" id="form_bcf"></div>
+                      <div class="fb-checkbox-group form-group field-checkbox-group-1540577295794">
+                        <label for="checkbox-group-1540577295794" class="fb-checkbox-group-label">BCF ausente?</label>
+                          <div class="checkbox-group">
+                            <div class="checkbox">
+                              <input name="checkbox-group-1540577295794[]" id="checkbox-group-1540577295794-0" value="option-1" type="checkbox" checked="checked">
+                              <label for="checkbox-group-1540577295794-0">Option 1</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="fb-number form-group field-number-1540578047417">
+                          <label for="number-1540578047417" class="fb-number-label">ILA</label>
+                          <input type="number" placeholder="cm" class="form-control" name="number-1540578047417" step="0.1" id="number-1540578047417">
+                        </div>
+                        <div class="fb-button form-group field-button-1540577184864">
+                          <button type="button" class="btn btn-success" name="button-1540577184864" style="success" id="button-1540577184864"
+                          onsu>Laudo</button>
+                        </div>
+                      </div>
+                    </form>
+
+          </div>
         </li>
       </ul>
 
+      <!-- DESCRIPTORS DESCRIPTORS -->
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
       <ul id="descriptors_ul">

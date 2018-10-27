@@ -1,20 +1,4 @@
 
-new Vue({ 
-  el: '#app',
-  mounted: function(){$('.collapsible').collapsible();},
-  data: {
-    cards: [
-      { title: 'Open Clicks', src: 'ultrasound_icon.png', description:'...'}
-    ]
-  }
-  })
-
-
-
-
-
-
-
 
 
 //  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL
@@ -171,6 +155,35 @@ new Vue( {
 
 
 
+
+// CLICKS CLICKS CLICKS
+// CLICKS CLICKS CLICKS
+// CLICKS CLICKS CLICKS
+
+new Vue({ 
+  el: '#app',
+  mounted: function(){$('.collapsible').collapsible();},
+  data: {
+    cards: [
+      { title: 'Open Clicks', src: 'ultrasound_icon.png', description:''}
+    ],
+    selected_report : 'ob_tardio'
+  }
+  })
+
+
+  submit_laudo = {
+    ob_tardio : function() {
+      dbp = $('#form_dbp').value;
+      cc = $('#form_cc').value;
+      ca = $('#form_ca').value;
+      cf = $('#form_cf').value;
+      bcf = $('#form_bcf').value;
+      ila = $('#form_ila').value;
+
+
+    }
+  }
 
 
 

@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet">
+
 
 
   
@@ -21,6 +23,7 @@
 
   <script src="templates.js"></script>
   <script src="descriptors.js"></script>
+  <script src="click_temlates.js"></script>
 
   
 </head>
@@ -73,8 +76,6 @@
       </ul>
     </div>
 
-
-
   <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
   <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
   <!-- TRIGGERS NAV BAR TRIGGERS NAV BAR NAV BAR NAV BAR NAV BAR TRIGERS -->
@@ -94,8 +95,6 @@
         </ul>
       </div>
     </nav>
-
-
 
   <!-- NAV BAR TC TC TC TC TC TC TC TC TRIGGERS -->
   <nav id=nav_tc>
@@ -125,8 +124,6 @@
   </nav>
   
 
-
-
   <!-- EXAM TYPE SELECTOR -->
   <div class="row">
       <ul class="tabs" id="modality_selector">
@@ -151,45 +148,57 @@
     
     <!-- FORMS CLICKS -->
     <div class="col-5">
+      
       <ul id="app" class="collapsible popout">
         <li v-for="card in cards" :key="card.title">
           <div class="collapsible-header "><img :src="card.src" class="circle vignette "><span class="headline white--text" v-text="card.title"></span></div>
           <div class="collapsible-body white"><span class="headline white--text" v-text="card.description"></span>
-            <form id="rendered-form"><div class="rendered-form"><div class=""><h1 id="control-4928516">2º/3º trimestre</h1></div>
-              <div class="fb-number form-group field-form_dbp">
-                <label for="form_dbp" class="fb-number-label">DBP</label>
-                <input type="number" placeholder="cm" class="form-control" name="form_dbp" step="0.1" id="form_dbp"></div>
+            <form id="rendered-form"><div class="rendered-form">
+              <div class="">
+                <h3 id="control-4928516">2º/3º trimestre</h3>
+              </div>
+              <div class="row">
+            
+              <div class="col">
+                <div class="fb-number form-group field-form_dbp">
+                  <label for="form_dbp" class="fb-number-label">DBP</label>
+                  <input type="number" placeholder="DBP (cm)" class="form-control" name="form_dbp" step="0.1" id="form_dbp"></div>
                 <div class="fb-number form-group field-form_cc">
                   <label for="form_cc" class="fb-number-label">CC</label>
-                  <input type="number" placeholder="cm" class="form-control" name="form_cc" step="0.1" id="form_cc"></div>
-                  <div class="fb-number form-group field-form_ca">
-                    <label for="form_ca" class="fb-number-label">CA</label>
-                    <input type="number" placeholder="cm" class="form-control" name="form_ca" step="0.1" id="form_ca"></div>
-                    <div class="fb-number form-group field-form_cf">
-                      <label for="form_cf" class="fb-number-label">CF</label>
-                      <input type="number" placeholder="cm" class="form-control" name="form_cf" step="0.1" id="form_cf"></div>
-                      <div class="fb-number form-group field-form_bcf">
-                        <label for="form_bcf" class="fb-number-label">BCF</label>
-                        <input type="number" placeholder="cm" class="form-control" name="form_bcf" step="1" id="form_bcf"></div>
-                      <div class="fb-checkbox-group form-group field-checkbox-group-1540577295794">
-                        <label for="checkbox-group-1540577295794" class="fb-checkbox-group-label">BCF ausente?</label>
-                          <div class="checkbox-group">
-                            <div class="checkbox">
-                              <input name="checkbox-group-1540577295794[]" id="checkbox-group-1540577295794-0" value="option-1" type="checkbox" checked="checked">
-                              <label for="checkbox-group-1540577295794-0">Option 1</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="fb-number form-group field-number-1540578047417">
-                          <label for="number-1540578047417" class="fb-number-label">ILA</label>
-                          <input type="number" placeholder="cm" class="form-control" name="number-1540578047417" step="0.1" id="number-1540578047417">
-                        </div>
-                        <div class="fb-button form-group field-button-1540577184864">
-                          <button type="button" class="btn btn-success" name="button-1540577184864" style="success" id="button-1540577184864"
-                          onsu>Laudo</button>
-                        </div>
-                      </div>
-                    </form>
+                  <input type="number" placeholder="CC (cm)" class="form-control" name="form_cc" step="0.1" id="form_cc"></div>
+                <div class="fb-number form-group field-form_ca">
+                  <label for="form_ca" class="fb-number-label">CA</label>
+                  <input type="number" placeholder="CA (cm)" class="form-control" name="form_ca" step="0.1" id="form_ca"></div>
+                <div class="fb-number form-group field-form_cf">
+                  <label for="form_cf" class="fb-number-label">CF</label>
+                  <input type="number" placeholder="CF (cm)" class="form-control" name="form_cf" step="0.1" id="form_cf"></div>
+              </div>
+
+              <div class="col">
+                <div class="fb-number form-group field-form_bcf">
+                  <label for="form_bcf" class="fb-number-label">BCF</label>
+                  <input type="number" placeholder="BCF" class="form-control" name="form_bcf" step="1" id="form_bcf"></div>
+                <div class="inputGroup">
+                  <label>
+                    <input type="checkbox" class="filled-in" checked="checked" />
+                    <span>BCF ausente?</span>
+                  </label>
+                </div>
+                
+                <div class="fb-number form-group field-number-1540578047417">
+                  <label for="number-1540578047417" class="fb-number-label">ILA</label>
+                  <input type="number" placeholder="ILA (cm)" class="form-control" name="number-1540578047417" step="0.1" id="form_ila">
+                </div>
+              </div>
+
+                <div class="fb-button form-group field-button-1540577184864">
+                  <button type="button" class="btn btn-success" name="button-1540577184864" style="success" id="button-1540577184864" onclick="submit_laudo.ob_tardio()">Laudo</button>
+                </div>
+            
+              </div>
+            
+            </div>
+            </form>
 
           </div>
         </li>
@@ -208,7 +217,6 @@
   
     </div>
   </div>
-    
   
 </div>
   

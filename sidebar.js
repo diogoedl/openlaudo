@@ -159,40 +159,24 @@ new Vue( {
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
-
+// click vue
 new Vue({ 
   el: '#app',
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: 'Open Clicks', src: 'ultrasound_icon.png', description:''}
+      { title: 'Obstétrico 2º Trimestre', src: 'ultrasound_icon.png', description:''}
     ],
     selected_report : 'ob_tardio'
   }
   })
 
 
-  submit_laudo = {
-    ob_tardio : function() {
-      dbp = $('#form_dbp').value;
-      cc = $('#form_cc').value;
-      ca = $('#form_ca').value;
-      cf = $('#form_cf').value;
-      bcf = $('#form_bcf').value;
-      ila = $('#form_ila').value;
-
-
-    }
-  }
-
-
-
-
 // DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
 // DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
 // DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
 
-
+// function to search  descriptors
 function myFunction() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
@@ -209,6 +193,7 @@ function myFunction() {
   }
 }
 
+// insert descriptor in quill
 function format_descriptor(text) {
 
   try {
@@ -220,13 +205,12 @@ function format_descriptor(text) {
     console.warn(err);
   }
     
-
   quill.insertText(selectionIndex, text);
 
 }
 
 
-
+// vue
 v_descriptors_ul = new Vue( {
   el: '#descriptors_ul',
   data: {
@@ -253,10 +237,10 @@ v_descriptors_ul = new Vue( {
 
 });
 
+// function to update v_descriptors_ul vue
 function update_descriptors(specific_descriptors) {
   v_descriptors_ul.v_descriptors = specific_descriptors;
 }
-
 
 
 

@@ -34,15 +34,18 @@ var quill = new Quill('#editor', {
   
   function format_template(exam) {
     tecniqueTitle = '';
-    if (exam.reportTecnique) {
-      tecniqueTitle = "Técnica\n";
+    analysisTitle = '';
+    if (exam.tecnique) {
+      tecniqueTitle = "\nTécnica\n";
+      analysisTitle = '\nAnálise\n';
     }
     
     quill.setContents([
         { insert: exam.title + '\n', attributes: {bold: true, align: 'center'} },
         { insert: tecniqueTitle, attributes: {bold: true, align: 'justify'} },
         { insert: exam.tecnique + '\n'},
-        { insert: exam.body + '\n\n', attributes: {align: 'justify'}},
+        { insert: analysisTitle, attributes : {bold: true, align: 'justify'} },
+        { insert:  exam.body + '\n\n', attributes: {align: 'justify'}},
         { insert : 'Conclusão:\n', attributes : {bold: true} },
         { insert: exam.conc}
       ]);
@@ -250,5 +253,6 @@ function update_descriptors(specific_descriptors) {
 
     $(".dropdown-trigger").dropdown({constrainWidth : false});
     $('.tabs').tabs();
+    $('.form_select_init').formSelect();
 
   })

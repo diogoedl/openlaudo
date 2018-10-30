@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Card Payment</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div id="recog" class="wrap">
+  <h2>Payment details</h2>
+  <p>Swipe to choose your option</p>
+  <button class="btn-back">
+  			<svg height="24" viewBox="0 0 24 24" width="24">
+   			 <path  d="M13.5,7A6.5,6.5 0 0,1 20,13.5A6.5,6.5 0 0,1 13.5,20H10V18H13.5C16,18 18,16 18,13.5C18,11 16,9 13.5,9H7.83L10.91,12.09L9.5,13.5L4,8L9.5,2.5L10.92,3.91L7.83,7H13.5M6,18H8V20H6V18Z" />
+		</svg>
+   
+  		</button>
+  <div class="cr-wrap">
+    <div class="card pattern"></div>
+    <!--pattern card-->
+    <div class="card pattern">
+      <div>
+        <h3>Can't find your option ?</h3>
+        <p>Contact us or you may Swipe back to the available option</p>
+      </div>
+    </div>
+    <!--pattern card -->
+    <div class="card item" data-order="4"><img src="http://citylightspress.com/ims/skrill.svg"></div>
+    <div class="card item" data-order="3"><img src="http://citylightspress.com/ims/mc.svg"></div>
+    <div class="card item" data-order="2"><img src="http://citylightspress.com/ims/paypal.svg"></div>
+    <div class="card item active" data-order="1"><img src="http://citylightspress.com/ims/visa.svg"></div>
+
+
+    <!-- Indicators -->
+    <ul class="indicators">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li>
+        <a href="#slide-4"></a>
+      </li>
+    </ul>
+
+  </div>
+  <!-- end of cr-wrap -->
+  <div class="details">
+    <form id="form">
+      <div class="inputswrap">
+        <div class="form-group">
+          <input type="text" id="name">
+          <label for="name">Name</label>
+        </div>
+
+        <div class="form-group inline">
+          <input type="number" id="credit">
+          <label for="credit">Credit Number</label>
+        </div>
+        <div class="form-group inline">
+          <div class="two-third">
+            <input type="number" id="exp-date">
+            <label for="exp-date">Expire Date</label>
+          </div>
+          <div class="third">
+            <input type="number" id="cvv">
+            <label for="ccv">CVV</label>
+          </div>
+        </div>
+
+      </div>
+      <!-- InputsWrap end -->
+
+      <button class="form-btn" type="submit"><span>Complete order</span>
+				<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 0h24v24H0z" fill="none"/>
+					<path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+				</svg>
+		</button>
+    </form>
+  </div>
+
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

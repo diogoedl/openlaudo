@@ -3,6 +3,21 @@ form_templates = {
     <div class="">
       <h3 id="control-4928516">2º/3º trimestre</h3>
     </div>
+    
+    <div class="row idade-gestacional">
+      <div class="col-3">
+        <div>
+          Idade gestacional
+        </div>
+      </div>
+      <div class="col">
+        <input type="number" placeholder="Semanas" class="form-control" name="form_semanas" step="1" id="form_semanas">
+      </div>
+      <div class="col">
+        <input type="number" placeholder="Dias" class="form-control" name="form_dias" step="1" id="form_dias">
+      </div>
+    </div>
+
     <div class="row">
     
     <div class="col">

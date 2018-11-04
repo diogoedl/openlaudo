@@ -91,3 +91,16 @@ html, body {
 .form_sg {
   width: 30%;
 }
+
+#form_div {
+  padding-top: 5px;
+}
+
+.idade-gestacional {
+  border: 1px solid #f1a7ae;
+  margin-bottom: 5px;
+}
+
+.fb-number-label {
+  margin-bottom: 0px;
+}

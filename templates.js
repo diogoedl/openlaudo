@@ -18,7 +18,7 @@
                 "nickname": "USG ABDOME SUPERIOR",
                 "title": "ULTRASSONOGRAFIA DE ABDOME SUPERIOR",
                 "tecnique": "",
-                "body": "Fígado de dimensões normais, contornos regulares e bordos finos. Parênquima hepático com ecogenicidade e ecotextura preservadas, não se visualizando lesões focais.\nVeia porta com calibre e trajeto normais.\n,Veias hepáticas com calibre e distribuição normais.\nVesícula biliar normodistendida, com paredes finas e regulares. Conteúdo vesicular anecogênico, sem cálculos.\nVias biliares sem dilatações.\nPâncreas de dimensões, ecotextura e ecogenicidade normais. Não há dilatação do ducto pancreático principal.\nBaço de dimensões, ecotextura e ecogenicidade normais. Veia esplênica com calibre normal e trajeto regular.\nAusência de líquido livre na cavidade abdominal.",
+                "body": "Fígado de dimensões normais, contornos regulares e bordos finos. Parênquima hepático com ecogenicidade e ecotextura preservadas, não se visualizando lesões focais.\nVeia porta com calibre e trajeto normais.\nVeias hepáticas com calibre e distribuição normais.\nVesícula biliar normodistendida, com paredes finas e regulares. Conteúdo vesicular anecogênico, sem cálculos.\nVias biliares sem dilatações.\nPâncreas de dimensões, ecotextura e ecogenicidade normais. Não há dilatação do ducto pancreático principal.\nBaço de dimensões, ecotextura e ecogenicidade normais. Veia esplênica com calibre normal e trajeto regular.\nAusência de líquido livre na cavidade abdominal.",
                 "conc": "Ultrassonografia de abdome superior dos padrões da normalidade."
               },
               "abdome_total": {
@@ -79,20 +79,20 @@
             },
             "mascaras": {
               "ob_inicial": {
-                "name": "",
-                "nickname": "",
-                "title": "",
+                "name": "ob_inicial",
+                "nickname": "OBSTÉTRICO 1º TRI",
+                "title": "ULTRASSONOGRAFIA OBSTÉTRICA (1º TRIMESTRE)",
                 "tecnique": "",
-                "body": "",
-                "conc": ""
+                "body": "Data da última menstruação: ***/***/*** IG (menstrual): *** semanas e *** dias\nÚtero aumentado de volume, contendo saco gestacional tópico, de contornos regulares,\nmedindo *** x *** x *** mm.\nDiâmetro médio de saco gestacional (DMSG) de *** mm.\nVesícula vitelínica caracterizada, de aspecto habitual.\nConcepto único, com batimentos cardíacos em torno de *** batimentos por minuto (bpm).\nComprimento cabeça- nádega (CCN) de *** mm.\nTrofoblasto de inserção predominantemente anterior / posterior/difusa.\nColo uterino de aspecto habitual, apresentando orifício interno fechado e comprimento de *** mm.\nOvários de aspecto habitual.\nCorpo lúteo em ovário direito / esquerdo.",
+                "conc": "Gestação única, tópica, de concepto vivo.\nBiometria compatível com *** semanas e *** dias (+/- 4 dias)."
               },
               "ob_tardio": {
-                "name": "",
-                "nickname": "",
-                "title": "",
+                "name": "ob_tardio",
+                "nickname": "OBSTÉTRICO 2º/3º TRI",
+                "title": "ULTRASSONOGRAFIA OBSTÉTRICA",
                 "tecnique": "",
-                "body": "",
-                "conc": ""
+                "body": "Feto único, em  apresentação ***, com dorso à ***.\nO feto apresenta sinais vitais presentes, representados por movimentação ativa e batimentos cardíacos.\nBCF: *** bpm.\nPlacenta de localização ***, com aspecto compatível com grau *** de Grannum. Espessura de *** mm.\n\nParâmetros biométricos:\nDiâmetro biparietal (DBP): *** mm.\nCircunferência cefálica (CC): *** mm.\nCircunferência abdominal (CA): *** mm.\nComprimento femoral (CF): *** mm.\nPeso fetal em torno de *** gramas (+/- 15%).\n\nLíquido amniótico:\nVolume de líquido amniótico subjetivamente normal. ILA= *** mm.\n",
+                "conc": "Gestação única, tópica, de concepto vivo.\nBiometria média compatível com *** semanas e *** dia (variação de até +/- 8 %)."
               },
               "transvaginal": {
                 "name": "transvaginal",
@@ -319,7 +319,7 @@
                 "nickname": "TCANGIO CRÂNIO",
                 "title": "ANGIOTOMOGRAFIA DE CRÂNIO",
                 "tecnique": "Obtidos cortes por metodologia multislice, durante a administração do meio de contraste endovenoso.",
-                "body": "Segmento intracraniano das artérias carótidas internas de trajeto habitual e calibre preservado.\nNão há placas. Não há evidência de estenoses.\nSegmento intracraniano das artérias vertebrais de trajeto e calibre preservado.\nArtéria basilar de trajeto e calibre preservado.\n#Padrão fetal na circulação posterior _ (hipoplasia/agenesia de P1 com calibre normal após a confluência da artéria comunicante posterior homolateral).\nPrincipais artérias intracranianas apresentando trajeto, calibre e contrastação conservados.\nNão há evidências de aneurismas detectáveis pelo método.\nBoa contrastação dos seios durais, das principais veias superficiais e profundas e do segmento superior das veias jugulares.\nNão se observam falhas de enchimento intraluminais venosas.\nAteromatose aórtica.\n##Artéria carótida comum esquerda é ramo do tronco braquiocefálico.\n##Placa calcificada na origem da artéria subclávia esquerda, sem determinar estenoses significativas.\nEmergência dos demais segmentos arteriais da crossa da aorta sem placas ou estenoses significativas.\nArtérias carótidas de trajeto e calibre preservados. \n##Placa mole na emergência / no segmento proximal da artéria carótida interna direita, sem determinar estenoses significativas.\n##Placa mole e irregular na emergência / no segmento proximal da artéria carótida interna esquerda, determinando estenose estimada em 50 %.\n##Placas calcificadas nos segmentos cavernosos e supraclinoideos das artérias carótidas internas, sem determinar estenoses significativa.\nArtérias vertebrais de trajeto e calibre preservado.\n## Placas calcificadas nos segmentos V3 das artérias vertebrais sem determinar estenoses significativas.\nPrincipais artérias intracranianas apresentando trajeto, calibre e contrastação conservados.\nNão há evidências de aneurismas detectáveis pelo método.\nBoa contrastação dos seios durais, das principais veias superficiais e profundas e do segmento superior das veias jugulares.\nNão se observam falhas de enchimento intraluminais venosas.\n------------------------------------------------------------------------------------------------------------\nArtéria carótida comum esquerda tem origem junto à origem do tronco braquiocefálico (variação anatômica).\nEmergência dos segmentos arteriais da crossa da aorta sem estenoses.\nArtérias carótidas de calibre preservado. \nAteromatose nas bifurcações carotídeas, mais evidente à esquerda. Ateromatose nos segmentos intracranianos das artérias carótidas internas, basilar e vertebrais, sem caracterizar estenoses. \nArtérias vertebrais de trajeto preservados. Artéria vertebral direita hipoplásica. \nArtéria basilar de trajeto e calibre preservado.\nPrincipais artérias intracranianas apresentando trajeto, calibre e contrastação conservados.\nNão há evidências de aneurismas detectáveis pelo método.\nBoa contrastação dos seios durais, das principais veias superficiais e profundas e do segmento superior das veias jugulares.\nNão se observam falhas de enchimento intraluminais venosas.\nAlargamento dos sulcos corticais, fissuras inter-hemisférica e sylvianas, assim como aumento dos ventrículos laterais e III ventrículo. Cisternas da base amplas.\nHipoatenuação da substância branca periventricular, mais evidente ao redor dos cornos frontais e átrios ventriculares.\nCristalinos não caracterizados.",
+                "body": "Segmento intracraniano das artérias carótidas internas de trajeto habitual e calibre preservado.\nNão há placas. Não há evidência de estenoses.\nSegmento intracraniano das artérias vertebrais de trajeto e calibre preservado.\nArtéria basilar de trajeto e calibre preservado.\n#Padrão fetal na circulação posterior _ (hipoplasia/agenesia de P1 com calibre normal após a confluência da artéria comunicante posterior homolateral).\nPrincipais artérias intracranianas apresentando trajeto, calibre e contrastação conservados.\nNão há evidências de aneurismas detectáveis pelo método.\nBoa contrastação dos seios durais, das principais veias superficiais e profundas e do segmento superior das veias jugulares.\nNão se observam falhas de enchimento intraluminais venosas.\n\nEmergência dos demais segmentos arteriais da crossa da aorta sem placas ou estenoses significativas.\nArtérias carótidas de trajeto e calibre preservados.\nArtérias vertebrais de trajeto e calibre preservado.",
                 "conc": ""
               }
             }

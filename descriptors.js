@@ -88,6 +88,22 @@ descriptors = {
           "avc_agudo": {
             "title": "AVC agudo",
             "body": "Assimetria dos sulcos corticais e fissuras encefálicas frontotemporoparietais à direita, associado a tênues hipodensidades acometendo a cabeça e corpo do núcleo caudado e o putamen, assim como a região subinsular posterior, compatíveis com insulto isquêmico recente em território de artéria cerebral média de cronologia hiperaguda / aguda, acometendo inclusive seus ramos lenticuloestriados. Associa-se hiperdensidade do segmento M1 da artéria cerebral média, compatível com trombo intraluminal. Tais achados determinam leve compressão do ventrículo lateral direito.\n"
+          },
+          "tronco_variacao": {
+            "title": "Origem comum carótida esquerda variação",
+            "body": "Artéria carótida comum esquerda tem origem junto à origem do tronco braquiocefálico (variação anatômica)."
+          },
+          "ateromatose_carotid": {
+            "title": "Ateromatose carótidas sem estenoses",
+            "body": "Ateromatose nas bifurcações carotídeas, mais evidente à esquerda. Ateromatose nos segmentos intracranianos das artérias carótidas internas, basilar e vertebrais, sem caracterizar estenoses significativas. "
+          },
+          "alargamento_espacos": {
+            "title": "Alargamento espaços - idoso",
+            "body": "Alargamento dos sulcos corticais, fissuras inter-hemisférica e sylvianas, assim como aumento dos ventrículos laterais e III ventrículo. Cisternas da base amplas."
+          },
+          "padrao_fetal": {
+            "title": "Padrão fetal",
+            "body": "Padrão fetal na circulação posterior _ (hipoplasia/agenesia de P1 com calibre normal após a confluência da artéria comunicante posterior homolateral)."
           }
         }
       },
@@ -415,7 +431,7 @@ descriptors = {
           },
           "espessamento": {
             "title": "Espessamento do revestimento mucoso",
-            "body": "\n\nAcentuação/proeminência do componente mucoso das cavidades nasais.\n\nAcentuação/proeminência do componente mucoso dos cornetos nasais (inferiores/médios/superiores.\n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo).\n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo), associado a secreção bolhosa que forma nível líquido, achados que, em contexto clínico compatível, podem representar componente inflamatório agudo/agudizado. \n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo), associado a esclerose difusa de suas paredes ósseas, achados sugestivos de sinusopatia inflamatória crônica.\n\nPreenchimento de algumas células do trabeculado etmoidal por material com atenuação de partes moles.\n\nEspessamento do revestimento mucoso dos seios paranasais.\n\nEspessamento do revestimento mucoso de todas as cavidades paranasais, com cistos de retenção/pólipos esparsos, mais proeminentes nos seios ... \n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo) que adquire, por vezes, contornos arredondados, podendo corresponder a pólipo/cisto de retenção.\n\nEspessamento do revestimento mucoso das cavidades nasais, com aspecto lobulado no meato nasal (superior/médio/inferior) (direito/esquerdo), admitindo diferencial com formação polipoide. \n\nEspessamento e esclerose das paredes ósseas com calcificações de permeio ao espessamento do revestimento mucoso no seio maxilar esquerdo, denotando processo inflamatório crônico. \n\nObliteração dos (infundíbulos/recessos frontais/esfenoetmoidais) por componente mucoso/muco."
+            "body": "Acentuação/proeminência do componente mucoso das cavidades nasais.\n\nAcentuação/proeminência do componente mucoso dos cornetos nasais (inferiores/médios/superiores.\n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo).\n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo), associado a secreção bolhosa que forma nível líquido, achados que, em contexto clínico compatível, podem representar componente inflamatório agudo/agudizado. \n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo), associado a esclerose difusa de suas paredes ósseas, achados sugestivos de sinusopatia inflamatória crônica.\n\nPreenchimento de algumas células do trabeculado etmoidal por material com atenuação de partes moles.\n\nEspessamento do revestimento mucoso dos seios paranasais.\n\nEspessamento do revestimento mucoso de todas as cavidades paranasais, com cistos de retenção/pólipos esparsos, mais proeminentes nos seios ... \n\nEspessamento do revestimento mucoso do seio .... (direito/esquerdo) que adquire, por vezes, contornos arredondados, podendo corresponder a pólipo/cisto de retenção.\n\nEspessamento do revestimento mucoso das cavidades nasais, com aspecto lobulado no meato nasal (superior/médio/inferior) (direito/esquerdo), admitindo diferencial com formação polipoide. \n\nEspessamento e esclerose das paredes ósseas com calcificações de permeio ao espessamento do revestimento mucoso no seio maxilar esquerdo, denotando processo inflamatório crônico. \n\nObliteração dos (infundíbulos/recessos frontais/esfenoetmoidais) por componente mucoso/muco."
           },
           "polipose": {
             "title": "POLIPOSE NASOSSINUSAL",
@@ -820,7 +836,15 @@ descriptors = {
           },
           "micronodulos": {
             "title": "Micronódulos",
-            "body": "Raros e esparsos micronódulos pulmonares, menores que 0,3 cm, inespecíficos. Outros pequenos nódulos pulmonares calcificados, residuais.\nRaros e esparsos micronódulos pulmonares, menores que 0,4 cm, in específicos, achado usual e frequentemente desprovido de significado clínico."
+            "body": "Raros e esparsos micronódulos pulmonares, menores que 0,3 cm, inespecíficos. Outros pequenos nódulos pulmonares calcificados, residuais."
+          },
+          "micronodulos2": {
+            "title": "Micronódulos",
+            "body": "Raros e esparsos micronódulos pulmonares, menores que 0,4 cm, in específicos, achado usual e frequentemente desprovido de significado clínico."
+          },
+          "micronodulos3": {
+            "title": "Micronódulos",
+            "body": "Pequenos nódulos pulmonares esparsos bilateralmente, menores que 0,5 cm, alguns calcificados, residuais, outros não calcificados, inespecíficos."
           },
           "ca_esofago": {
             "title": "Câncer de esôfago",
@@ -1313,6 +1337,14 @@ descriptors = {
           "ccr_iv": {
             "title": "CCR - Estágio IV",
             "body": "Lesão sólida hipervascular com focos de necrose/liquefação de permeio centrado no pólo renal inferior esquerdo, com diâmetro máximo de 6,8 cm, com maior componente endofítico, que ultrapassa a linha polar inferior e possui extensão para a gordura do seio renal. O conjunto de achados é sugestivo de carcinoma de células renais do subtipo células claras.\nMúltiplas lesões hipervascularizadas hepáticas compatíveis com acometimento secundário. Tais lesões determinam distúrbio perfusional hepático difuso.\nMúltiplas linfonodomegalias e conglomerados de linfonodos de aspecto secundário nas cadeias  periaórticas (a partir da aorta torácica distal), interaortocavais e ilíacos comuns, algumas com necrose/liquefação central, destacando-se a maior inferiormente à veia renal esquerda com 3,8 x 3,8 cm nos maiores diâmetros axiais, determinando afilamento da veia, que se encontra pérvia. Há também amplo contato com a aorta abdominal em toda a sua extensão, que se encontra de calibre e fluxo preservados.\nLesões líticas com componente de partes moles anterior de aspecto secundário nos corpos vertebrais de L3 e L4.\nObserva-se outros focos de lesões líticas bilaterais no aspecto posterior dos ílios suspeitas para acometimento secundário.\nNão se observa trombos no interior das veias renais e da veia cava inferior.\nNão há lesões de aspecto secundário no parênquima pulmonar.\nArtéria renal esquerda única, com bifurcação cerca de 2,5 cm do hilo renal.\n"
+          },
+          "achados_angio_aorta": {
+            "title": "Aorta - aneurisma, trombose, ateromatose",
+            "body": "*Sinais de ateromatose difusa, caracterizados por espessamento e calcificações parietais.\n*Notam-se irregularidades da superfície luminal, indicativas de ulcerações.\n*Aneurisma fusiforme da aorta torácica, que se inicia num plano cerca de .... cm e se estende por cerca de ..... cm. O calibre máximo do aneurisma é de ...... cm. O calibre da aorta superiormente à dilatação é de .... cm e distalmente de ..... cm.\nNota-se ainda, trombose mural na ao longo da luz do segmento dilatado.\n*Controle pós-operatório de correção endovascular de aneurisma da aorta torácica, com colocação de endoprótese metálica. Endoprótese com posicionamento habitual e sem sinais de extravasamentos do meio de contraste. O diâmetro máximo do saco aneurismático é de ...........cm.\n*Controle pós-operatório de correção de aneurisma da aorta torácica com colocação de prótese, sem sinais de extravasamentos. Não são identificadas coleções no leito cirúrgico."
+          },
+          "litiase_ureteral": {
+            "title": "Litíase ureteral - nefrolitíase obstrutiva - cálculo renal",
+            "body": "Cálculo obstrutivo no ureter #, medindo cm, com atenuação de UH, distando cerca de cm da # junção ureteropiélica #junção ureterovesical e determinando moderada dilatação ureteropielocalicinal a montante, com densificação da gordura periureteral e perirrenal."
           }
         }
       },
@@ -1421,6 +1453,10 @@ descriptors = {
           "uncovertebral": {
             "title": "Uncovertebral",
             "body": "Artropatia uncovertebral bilateral em C5-C6, sem redução significativa dos diâmetros dos forames de conjugação correspondentes.\nArtropatia uncovertebral bilateral em C5-C6, reduzindo os diâmetros dos forames de conjugação correspondentes.\nArtropatia uncovertebral bilateral em C5-C6, determinando estenose dos forames de conjugação correspondentes."
+          },
+          "niveis": {
+            "title": "Níveis vertebrais / discais",
+            "body": "Nível C2-C3:\nNível C3-C4:\nNível C4-C5:\nNível C5-C6:\nNível C6-C7:\nNível C7:T1:\n\nNível L1-L2:\nNível L2-L3:\nNível L3-L4:\nNível L4-L5:\nNível L5-S1:\n"
           }
         }
       },

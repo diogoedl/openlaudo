@@ -19,25 +19,56 @@ var toolbarOptions = [
   
     [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
     [{ 'align': [] }],
+    ['COPIAR']
   
     //['clean']                                         // remove formatting button
   ];  
 
+myhandlers = {"COPIAR" : function(){
+  htmlStr = quill.root.innerHTML;
+  textStr = quill.getText();
+  rtfStr = convertHtmlToRtf(htmlStr);
+  copyToClip(rtfStr, htmlStr, textStr);
+}};
 
 var quill = new Quill('#editor', {
     modules: {
-        toolbar: toolbarOptions
+        toolbar:  {
+
+          container : toolbarOptions,
+          handlers : myhandlers
+
+        }
       },
     theme: 'snow'
   });
 
+
+function copyToClip(rtfStr, htmlStr, textStr) {
+  function listener(e) {
+    e.clipboardData.setData("application/rtf", rtfStr);
+    // e.clipboardData.setData("application/msword", rtfStr);
+    console.log(rtfStr);
+    e.clipboardData.setData("text/html", htmlStr);
+    e.clipboardData.setData("text/plain", textStr);
+    e.preventDefault();
+  }
+  document.addEventListener("copy", listener);
+  document.execCommand("copy");
+  document.removeEventListener("copy", listener);
+};
   
-  function format_template(exam) {
+  // inserts template to quill, changes click template
+  function format_template(exam, usg) {
     tecniqueTitle = '';
     analysisTitle = '';
     if (exam.tecnique) {
       tecniqueTitle = "\nTécnica\n";
       analysisTitle = '\nAnálise\n';
+    }
+    conclusaoTitle = "";
+    if (usg){
+      conclusaoTitle = "Conclusão\n"
     }
     
     quill.setContents([
@@ -46,15 +77,81 @@ var quill = new Quill('#editor', {
         { insert: exam.tecnique + '\n'},
         { insert: analysisTitle, attributes : {bold: true, align: 'justify'} },
         { insert:  exam.body + '\n\n', attributes: {align: 'justify'}},
-        { insert : 'Conclusão:\n', attributes : {bold: true} },
+        { insert : conclusaoTitle, attributes : {bold: true} },
         { insert: exam.conc}
       ]);
+
+      // insert click form
+      if (exam.name) {
+        if (form_templates[exam.name]) {
+          
+          div_tags = 
+          `<div class="fb-button form-group field-button-1540577184864 row"><div class="col-8">` + exam.nickname +
+          `</div><div class=col"><button type="button" class="btn btn-success" name="button-1540577184864" style="success; float:right" id="button-1540577184864" onclick="submit_laudo.` + exam.name + `();event.stopPropagation();">Laudo</button></div>
+          </div>`;
+
+          collpasible_app.change_name(div_tags, form_templates[exam.name]);
+          setTimeout(function(){ $('.form_select_init').formSelect();; }, 500);
+          // $("#form_div").html(form_templates[exam.name]);
+
+        }
+      }
   }
 
 
 
 
+  function convertHtmlToRtf(html) {
+    if (!(typeof html === "string" && html)) {
+        return null;
+    }
 
+    var tmpRichText, hasHyperlinks;
+    var richText = html;
+
+    // Singleton tags
+    richText = richText.replace(/<(?:hr)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard \\brdrb \\brdrs \\brdrw10 \\brsp20 \\par}\n{\\pard\\par}\n");
+    richText = richText.replace(/<(?:br)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard\\par}\n");
+
+    // Empty tags
+    richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?\s*[\/]>/ig, "{\\pard\\par}\n");
+    richText = richText.replace(/<(?:[^>]+)\/>/g, "");
+
+    // Hyperlinks
+    richText = richText.replace(
+        /<a(?:\s+[^>]*)?(?:\s+href=(["'])(?:javascript:void\(0?\);?|#|return false;?|void\(0?\);?|)\1)(?:\s+[^>]*)?>/ig,
+        "{{{\n");
+    tmpRichText = richText;
+    richText = richText.replace(
+        /<a(?:\s+[^>]*)?(?:\s+href=(["'])(.+)\1)(?:\s+[^>]*)?>/ig,
+        "{\\field{\\*\\fldinst{HYPERLINK\n \"$2\"\n}}{\\fldrslt{\\ul\\cf1\n");
+    hasHyperlinks = richText !== tmpRichText;
+    richText = richText.replace(/<a(?:\s+[^>]*)?>/ig, "{{{\n");
+    richText = richText.replace(/<\/a(?:\s+[^>]*)?>/ig, "\n}}}");
+
+    // Start tags
+    richText = richText.replace(/<(?:b|strong)(?:\s+[^>]*)?>/ig, "{\\b\n");
+    richText = richText.replace(/<(?:i|em)(?:\s+[^>]*)?>/ig, "{\\i\n");
+    richText = richText.replace(/<(?:u|ins)(?:\s+[^>]*)?>/ig, "{\\ul\n");
+    richText = richText.replace(/<(?:strike|del)(?:\s+[^>]*)?>/ig, "{\\strike\n");
+    richText = richText.replace(/<sup(?:\s+[^>]*)?>/ig, "{\\super\n");
+    richText = richText.replace(/<sub(?:\s+[^>]*)?>/ig, "{\\sub\n");
+    richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "{\\pard\n");
+
+    // End tags
+    richText = richText.replace(/<\/(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "\n\\par}\n");
+    richText = richText.replace(/<\/(?:b|strong|i|em|u|ins|strike|del|sup|sub)(?:\s+[^>]*)?>/ig, "\n}");
+
+    // Strip any other remaining HTML tags [but leave their contents]
+    richText = richText.replace(/<(?:[^>]+)>/g, "");
+
+    // Prefix and suffix the rich text with the necessary syntax
+    richText =
+        "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +
+        "\n}";
+
+    return richText;
+}
 
 
 
@@ -122,12 +219,12 @@ new Vue( {
   },
   methods : {
     html_format_template : function (exam) {
-      format_template(exam);
+      format_template(exam, true);
     }
   }
 });
 
-    
+
 new Vue( {
   el: '#tc_dropdowns',
   data : {
@@ -135,7 +232,7 @@ new Vue( {
   },
   methods : {
     html_format_template : function (exam) {
-      format_template(exam);
+      format_template(exam, false);
     }
   }
 });
@@ -147,7 +244,7 @@ new Vue( {
   },
   methods : {
     html_format_template : function (exam) {
-      format_template(exam);
+      format_template(exam, false);
     }
   }
 });
@@ -158,21 +255,33 @@ new Vue( {
 
 
 
-
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
 // click vue
-new Vue({ 
+
+$("#form_div").html();
+
+
+collpasible_app = new Vue({ 
   el: '#app',
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: 'Obstétrico 2º Trimestre', src: 'ultrasound_icon.png', description:''}
-    ],
-    selected_report : 'ob_tardio'
+      { title: '', src: 'ultrasound_icon.png', description:''}
+    ] 
+  },
+  methods : {
+    change_name : function(newTitle, newDescription){
+      this.cards[0].title = newTitle;
+      this.cards[0].description = newDescription;
+    }
   }
-  })
+  });
+
+
+
+  // $("#form_div").html(form_templates.ob_inicial);
 
 
 // DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
@@ -234,6 +343,10 @@ v_descriptors_ul = new Vue( {
     set_specialty : function(new_specialty) {
       this.selected_specialty = new_specialty;
       this.v_descriptors = descriptors[this.selected_specialty].modalities[this.selected_modality].findings;
+    },
+
+    nl2br : function(text) {
+      return nl2br(text);
     }
 
   },
@@ -255,4 +368,13 @@ function update_descriptors(specific_descriptors) {
     $('.tabs').tabs();
     $('.form_select_init').formSelect();
 
-  })
+  });
+
+
+  function nl2br (str, is_xhtml) {
+    if (typeof str === 'undefined' || str === null) {
+        return '';
+    }
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+}

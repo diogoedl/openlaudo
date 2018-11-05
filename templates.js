@@ -143,6 +143,14 @@
                 "body": "Realizada avaliação das artérias dos membros inferiores desde a femoral comum até os ramos\ntibiofibulares.\nAs artérias femorais, poplíteas, tibiais e fibulares apresentam paredes regulares e calibre preservado, não\nse evidenciando dilatações ou placas ateromatosas.\nAo estudo com Doppler, o padrão espectral e velocidades estão conservados.",
                 "conc": "Artérias analisadas com aspecto ultrassonográfico e ao Doppler dentro dos limites da normalidade."
               },
+              "arterial_mide": {
+                "name": "arterial_mide",
+                "nickname": "DOPPLER ARTERIAL MI D/E",
+                "title": "ULTRASSONOGRAFIA COM DOPPLER DO SISTEMA ARTERIAL DO MEMBRO INFERIOR DIREITO / ESQUERDO ****",
+                "tecnique": "",
+                "body": "Realizada avaliação das artérias do membro inferior desde a femoral comum até os ramos\ntibiofibulares.\nAs artérias femorais, poplíteas, tibiais e fibulares apresentam paredes regulares e calibre preservado, não\nse evidenciando dilatações ou placas ateromatosas.\nAo estudo com Doppler, o padrão espectral e velocidades estão conservados.",
+                "conc": "Artérias analisadas com aspecto ultrassonográfico e ao Doppler dentro dos limites da normalidade."
+              },
               "varizes": {
                 "name": "varizes",
                 "nickname": "DOPPLER VENOSO MMII VARIZES",
@@ -157,6 +165,22 @@
                 "title": "DOPPLER VENOSO DOS MEMBROS SUPERIORES",
                 "tecnique": "",
                 "body": "Veias subclávias, axilares, braquiais, radiais e ulnares de trajeto, calibre e compressibilidade preservados.\nVeias cefálicas e basílicas de trajeto preservado e compressíveis até suas crossas.\nFluxo presente em todos os segmentos à análise com Doppler colorido e espectral, com curvas fásicas\ncom a respiração.\nVeia [...] apresentando-se calibrosa, de paredes ecogênicas e com material hipoecogênico no seu interior,\nassociado à redução de sua compressibilidade.\nAo Doppler, não se observa fluxo nesse segmento.\nTal aspecto estende-se até a veia [...] .\nDemais segmentos venosos pérvios e com fluxo preservado ao Doppler.",
+                "conc": "Ausência de sinais de trombose venosa profunda.\n----Sinais de trombose venosa profunda no segmento."
+              },
+              "venoso_mmii": {
+                "name": "venoso_mmii",
+                "nickname": "DOPPLER VENOSO MMII",
+                "title": "DOPPLER VENOSO DOS MEMBROS INFERIORES",
+                "tecnique": "",
+                "body": "Veias femorais comuns, femorais profundas (proximais), femorais, poplíteas, tibiais, fibulares e musculares das pernas com calibre e compressibilidade preservados.\nVeias safenas magna e parva de trajeto preservado e compressíveis até suas crossas.\nFluxo presente em todos os segmentos à análise com Doppler colorido e espectral, com curvas fásicas\ncom a respiração.\nVeia [...] apresentando-se calibrosa, de paredes ecogênicas e com material hipoecogênico no seu interior,\nassociado à redução de sua compressibilidade.\nAo Doppler, não se observa fluxo nesse segmento.\nTal aspecto estende-se até a veia [...] .\nDemais segmentos venosos pérvios e com fluxo preservado ao Doppler.",
+                "conc": "Ausência de sinais de trombose venosa profunda.\n----Sinais de trombose venosa profunda no segmento."
+              },
+              "venoso_mide": {
+                "name": "venoso_mide",
+                "nickname": "DOPPLER VENOSO MI D/E",
+                "title": "DOPPLER VENOSO DO MEMBRO INFERIOR DIREITO / ESQUERDO *******",
+                "tecnique": "",
+                "body": "Veias femoral comum, femoral profunda (proximal), femoral, poplítea, tibiais, fibulares e musculares da perna com calibre e compressibilidade preservados.\nVeias safenas magna e parva de trajeto preservado e compressíveis até suas crossas.\nFluxo presente em todos os segmentos à análise com Doppler colorido e espectral, com curvas fásicas\ncom a respiração.\nVeia [...] apresentando-se calibrosa, de paredes ecogênicas e com material hipoecogênico no seu interior,\nassociado à redução de sua compressibilidade.\nAo Doppler, não se observa fluxo nesse segmento.\nTal aspecto estende-se até a veia [...] .\nDemais segmentos venosos pérvios e com fluxo preservado ao Doppler.",
                 "conc": "Ausência de sinais de trombose venosa profunda.\n----Sinais de trombose venosa profunda no segmento."
               },
               "aorta": {

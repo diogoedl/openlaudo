@@ -84,6 +84,10 @@ html, body {
   height: 93%;
 }
 
+.ql-snow.ql-toolbar button.ql-COPIAR {
+  width: 90px;
+}
+
 .ql-COPIAR:after {
   content: "⮚COPIAR⮘";
 }

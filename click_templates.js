@@ -80,7 +80,7 @@ submit_laudo = {
       { insert: "ULTRASSONOGRAFIA OBSTÉTRICA\n\n", attributes: { bold: true, align: "center" } },
       { insert: "Feto único, em  apresentação " + (apresentacao || "***") + ", com dorso à " + (dorso || "***") + "." + bcf_message + "\nPlacenta de localização ***, com aspecto compatível com grau *** de Grannum. Espessura de *** mm.\n\n", attributes: { bold: false } },
       { insert: "Parâmetros biométricos:\n", attributes: { bold: true } },
-      { insert: "Diâmetro biparietal (DBP): " + (10 * DBP || "***") + " mm.\nCircunferência cefálica (CC): " + (10 * CC || "***") + " mm.\nCircunferência abdominal (CA): " + (10 * CA || "***") + " mm.\nComprimento femoral (CF): " + (10 * CF || "***") + " mm.\n" + efw_text + "\n\n", attributes: { bold: false } },
+      { insert: "Diâmetro biparietal (DBP): " + (Fmt1(10 * DBP) || "***") + " mm.\nCircunferência cefálica (CC): " + (Fmt1(10 * CC) || "***") + " mm.\nCircunferência abdominal (CA): " + (Fmt1(10 * CA) || "***") + " mm.\nComprimento femoral (CF): " + (Fmt1(10 * CF) || "***") + " mm.\n" + efw_text + "\n\n", attributes: { bold: false } },
       { insert: "Líquido amniótico:\n", attributes: { bold: true } },
       { insert: "Volume de líquido amniótico subjetivamente normal. ILA= " + (10 * ILA || "***") + " mm.\n\n", attributes: { bold: false } },
       { insert: "Conclusão:", attributes: { bold: true } },
@@ -973,10 +973,18 @@ Idx3[700] = "3.49"; Data3[700] = "0.9998";
 Idx3[701] = "3.50"; Data3[701] = "0.9998";
 Idx3[0] = 701;
 
+
+function Fmt1(x) { 
+  var v
+  if(x>=0) { v=''+(x+0.0005) } else { v=''+(x-0.0005) }
+  v = v.replace('.', ',');
+  return v.substring(0,v.indexOf(',')+2) 
+  }
+
+
 function Fmt2(x) {
   var v
   if (x >= 0) { v = '' + (x + 0.00005) } else { v = '' + (x - 0.00005) }
-
   return v.substring(0, v.indexOf('.') + 3)
 }
 

@@ -95,6 +95,9 @@ function copyToClip(rtfStr, htmlStr, textStr) {
           // $("#form_div").html(form_templates[exam.name]);
 
         }
+        else {
+          collpasible_app.change_name("<p>-</p>", "<p>-</p>");
+        }
       }
   }
 

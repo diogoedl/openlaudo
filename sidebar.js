@@ -27,8 +27,9 @@ var toolbarOptions = [
 myhandlers = {"COPIAR" : function(){
   htmlStr = quill.root.innerHTML;
   textStr = quill.getText();
-  rtfStr = convertHtmlToRtf(htmlStr);
-  copyToClip(rtfStr, htmlStr, textStr);
+  
+  // copyToClip(htmlStr, textStr);
+  copySelection();
 }};
 
 var quill = new Quill('#editor', {
@@ -43,10 +44,16 @@ var quill = new Quill('#editor', {
     theme: 'snow'
   });
 
+function copySelection() {
+  var len = quill.getLength();
+  quill.setSelection(0, len);
+  document.execCommand("copy");
+  quill.setSelection(len, len);
+}
 
-function copyToClip(rtfStr, htmlStr, textStr) {
+function copyToClip(htmlStr, textStr) {
   function listener(e) {
-    e.clipboardData.setData("application/rtf", rtfStr);
+    // e.clipboardData.setData("application/rtf", rtfStr);
     // e.clipboardData.setData("application/msword", rtfStr);
     console.log(rtfStr);
     e.clipboardData.setData("text/html", htmlStr);

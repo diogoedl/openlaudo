@@ -57,6 +57,7 @@ submit_laudo = {
     if (weeks >= 28)
       variacao = "21";
 
+    var peso_variacao = (roundNumber(efw*0.13,0) || "***");
 
     if (bcf_ausente) {
       var bcf_message = "\nAusência de batimentos cardíacos fetais.";
@@ -68,12 +69,12 @@ submit_laudo = {
 
     var biometria_conc = "Biometria atual compatível com " + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural + " (Hadlock et al).";
     if (ref_weeks) {
-      biometria_conc = "Biometria atual compatível com " + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural+ " (variação de até +/- " + variacao + " dias) (Hadlock et al), **compatível/não compatível** com a idade gestacional de referência (" + ref_weeks + " semanas e " + (ref_days || "zero") + " dia" + ref_days_plural + ").";
+      biometria_conc = "Gestação de "  + ref_weeks + " semanas e " + (ref_days || "zero") + " dia" + ref_days_plural + ", ***compatível com a biometria atual (" + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural+ ") (variação de até +/- " + variacao + " dias) (Hadlock et al)";
     }
 
-    var efw_text = "Peso fetal em torno de " + (efw || "***") + " gramas (Hadlock et al), compatível com percentil " + percentile + " para a idade gestacional estimada.";
+    var efw_text = "Peso fetal em torno de " + (efw || "***") + " gramas (+/- " + peso_variacao + " g) (Hadlock et al), compatível com percentil " + percentile + " para a idade gestacional estimada.";
     if (ref_weeks) {
-      efw_text = "Peso fetal em torno de " + (efw || "***") + " gramas (Hadlock et al), compatível com percentil " + percentile + " para a idade gestacional de referência (" + ref_weeks + " semanas e " + (ref_days || "zero") + " dia" + ref_days_plural + ").";
+      efw_text = "Peso fetal em torno de " + (efw || "***") + " gramas (+/- " + peso_variacao + " g) (Hadlock et al), compatível com percentil " + percentile + " para a idade gestacional de referência (" + ref_weeks + " semanas e " + (ref_days || "zero") + " dia" + ref_days_plural + ").";
     }
 
     quill.setContents([

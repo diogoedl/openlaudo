@@ -5,9 +5,31 @@ form_templates = {
     </div>
     
     <div class="row idade-gestacional">
-      <div class="col-3">
+      <div class="col-5" style="padding:2px;">
         <div>
-          Idade gestacional
+        <ul class="collapsible popout">
+        <li style="margin:0px;">
+          <div class="collapsible-header" style="padding:4  px;"><span class="headline white--text" style="margin-top:0px;">Idade gestacional</span>
+          </div>
+          <div class="collapsible-body white" id="form_div" style="padding:1px;padding-bottom:1px;"><span class="headline white--text">
+          Data USG:<input id="form_usg_date" type=date style=""/>
+          IG USG:
+          <div class="row" style="padding-left: 10%; padding-right: 10%; margin-bottom:1px;">
+            <div class="col" style="padding:0px;">
+              <input type="number" id="form_usg_weeks" placeholder="semanas" style=""/>
+            </div>
+            <div class="col" style="padding:0px;">
+              <input type="number" id="form_usg_days" placeholder="dias" style=""/>
+            </div> 
+          </div>
+          DUM:
+          <input type="date" id="form_dum" placeholder="dias" style=""/>
+          <button type="button" onclick="calculate_history()">Calcular</button>
+          </span>            
+          </div>
+          
+        
+      </ul>
         </div>
       </div>
       <div class="col">

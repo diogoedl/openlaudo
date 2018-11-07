@@ -264,8 +264,95 @@ function calculate_efw_and_gestational(BPD, HC, AC, FL) {
   }
 }
 
+function calculate_history() {
+  var usg_date = $('#form_usg_date').val();
+  var usg_weeks = $('#form_usg_weeks').val();
+  var usg_days = $('#form_usg_days').val();
+  var dum = $('#form_dum').val();
 
+  if (usg_date && usg_weeks) {
+    if (!usg_days)
+      usg_days = 0;
+    var from_usg = calculate_ga_from_previous(usg_date, usg_weeks, usg_days);
+    var weeks = from_usg[0];
+    var days = from_usg[1];
+  }
+  else if (dum) {
+    var from_dum = calculate_ga_from_dum(dum);
+    var weeks = from_dum[0];
+    var days = from_dum[1];
+  }
+  else {
+    alert("Preencha os dados de USG ou DUM");
+  }
 
+  $('#form_semanas').val(weeks);
+  $('#form_dias').val(days);
+  
+}
+
+function calculate_ga_from_previous(usg_date, weeks, days) {
+  weeks = parseInt(weeks);
+  days = parseInt(days);
+
+  var total_days = weeks*7 + days;
+  var today = new Date(Date.now());
+  usg_date = new Date(usg_date + ' 00:00');
+  var days_difference = days_between(usg_date,today);
+  var total_days = total_days + days_difference;
+
+  var diff_weeks = Math.floor(total_days/7);
+  var diff_days = (total_days%7);
+
+  return [diff_weeks, diff_days];
+
+}
+
+function calculate_ga_from_dum(dum) {
+    var today = new Date(Date.now());
+    var dum = new Date(dum);
+    var days_difference = days_between(dum, today);
+
+    var weeks = Math.floor(days_difference/7);
+    var days = (days_difference%7);
+  return [weeks, days];
+}
+
+function days_between(date1, date2) {
+
+  // The number of milliseconds in one day
+  var ONE_DAY = 1000 * 60 * 60 * 24;
+
+  // Convert both dates to milliseconds
+  var date1_ms = date1.getTime();
+  var date2_ms = date2.getTime();
+
+  // Calculate the difference in milliseconds
+  var difference_ms = Math.abs(date1_ms - date2_ms);
+
+  // Convert back to days and return
+  return Math.floor(difference_ms/ONE_DAY);
+
+}
+
+function separate_weeks_days(weeks) {
+  var GAint = Math.floor(weeks);
+  var GAfloat = GA % 1;
+
+  var days = GAfloat * 7;
+
+  var weeks = GAint;
+  days = Math.round(days);
+  if (days == 7) {
+    weeks++;
+    days = 0;
+  }
+
+  return {
+    weeks: weeks,
+    days: days,
+  }
+}
 
 Idx3 = new Object();
 

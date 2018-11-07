@@ -98,9 +98,10 @@ function copyToClip(htmlStr, textStr) {
           </div>`;
 
           collpasible_app.change_name(div_tags, form_templates[exam.name]);
-          setTimeout(function(){ $('.form_select_init').formSelect();; }, 500);
+          setTimeout(function(){ $('.form_select_init').formSelect(); }, 500);
           // $("#form_div").html(form_templates[exam.name]);
-
+          setTimeout(function(){ $('.collapsible').collapsible(); }, 500);
+          
         }
         else {
           collpasible_app.change_name("<p>-</p>", "<p>-</p>");

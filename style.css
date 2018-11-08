@@ -82,6 +82,7 @@ html, body {
 
 #editor {
   height: 93%;
+  font-size: medium;
 }
 
 .ql-snow.ql-toolbar button.ql-COPIAR {

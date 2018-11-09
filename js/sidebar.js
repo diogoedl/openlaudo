@@ -279,7 +279,7 @@ collpasible_app = new Vue({
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: '', src: 'ultrasound_icon.png', description:''}
+      { title: '', src: '../images/ultrasound_icon.png', description:''}
     ] 
   },
   methods : {

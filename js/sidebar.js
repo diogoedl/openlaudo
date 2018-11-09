@@ -2,7 +2,9 @@
 
 
 //  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL
+//  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL  QUILL
 
+// this list determinates the tools that are displayed in the top tool bar of the editor
 var toolbarOptions = [
     [{ 'font': [] }],
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -24,14 +26,15 @@ var toolbarOptions = [
     //['clean']                                         // remove formatting button
   ];  
 
+// define function to run when 'COPIAR' tool is pressed
 myhandlers = {"COPIAR" : function(){
   htmlStr = quill.root.innerHTML;
   textStr = quill.getText();
   
-  // copyToClip(htmlStr, textStr);
   copySelection();
 }};
 
+// code that inserts the editor on the page
 var quill = new Quill('#editor', {
     modules: {
         toolbar:  {
@@ -44,6 +47,7 @@ var quill = new Quill('#editor', {
     theme: 'snow'
   });
 
+// function to copy content
 function copySelection() {
   var len = quill.getLength();
   quill.setSelection(0, len);
@@ -51,21 +55,10 @@ function copySelection() {
   quill.setSelection(len, len);
 }
 
-function copyToClip(htmlStr, textStr) {
-  function listener(e) {
-    // e.clipboardData.setData("application/rtf", rtfStr);
-    // e.clipboardData.setData("application/msword", rtfStr);
-    console.log(rtfStr);
-    e.clipboardData.setData("text/html", htmlStr);
-    e.clipboardData.setData("text/plain", textStr);
-    e.preventDefault();
-  }
-  document.addEventListener("copy", listener);
-  document.execCommand("copy");
-  document.removeEventListener("copy", listener);
-};
+
   
-  // inserts template to quill, changes click template
+  // inserts simple template to quill
+  // also changes clickable template that shows on the right
   function format_template(exam, usg) {
     tecniqueTitle = '';
     analysisTitle = '';
@@ -88,15 +81,18 @@ function copyToClip(htmlStr, textStr) {
         { insert: exam.conc}
       ]);
 
-      // insert click form
+      // change click form
       if (exam.name) {
         if (form_templates[exam.name]) {
+        // if there is a clickable form with this exam.name in the form_templates.js file, render it
           
+          // cover of the expansible box. has button to generate report
           div_tags = 
           `<div class="fb-button form-group field-button-1540577184864 row"><div class="col-8">` + exam.nickname +
           `</div><div class=col"><button type="button" class="btn btn-success" name="button-1540577184864" style="success; float:right" id="button-1540577184864" onclick="submit_laudo.` + exam.name + `();event.stopPropagation();">Laudo</button></div>
           </div>`;
 
+          // calls func tha changes vue object
           collpasible_app.change_name(div_tags, form_templates[exam.name]);
           setTimeout(function(){ $('.form_select_init').formSelect(); }, 500);
           // $("#form_div").html(form_templates[exam.name]);
@@ -111,71 +107,13 @@ function copyToClip(htmlStr, textStr) {
 
 
 
-
-  function convertHtmlToRtf(html) {
-    if (!(typeof html === "string" && html)) {
-        return null;
-    }
-
-    var tmpRichText, hasHyperlinks;
-    var richText = html;
-
-    // Singleton tags
-    richText = richText.replace(/<(?:hr)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard \\brdrb \\brdrs \\brdrw10 \\brsp20 \\par}\n{\\pard\\par}\n");
-    richText = richText.replace(/<(?:br)(?:\s+[^>]*)?\s*[\/]?>/ig, "{\\pard\\par}\n");
-
-    // Empty tags
-    richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?\s*[\/]>/ig, "{\\pard\\par}\n");
-    richText = richText.replace(/<(?:[^>]+)\/>/g, "");
-
-    // Hyperlinks
-    richText = richText.replace(
-        /<a(?:\s+[^>]*)?(?:\s+href=(["'])(?:javascript:void\(0?\);?|#|return false;?|void\(0?\);?|)\1)(?:\s+[^>]*)?>/ig,
-        "{{{\n");
-    tmpRichText = richText;
-    richText = richText.replace(
-        /<a(?:\s+[^>]*)?(?:\s+href=(["'])(.+)\1)(?:\s+[^>]*)?>/ig,
-        "{\\field{\\*\\fldinst{HYPERLINK\n \"$2\"\n}}{\\fldrslt{\\ul\\cf1\n");
-    hasHyperlinks = richText !== tmpRichText;
-    richText = richText.replace(/<a(?:\s+[^>]*)?>/ig, "{{{\n");
-    richText = richText.replace(/<\/a(?:\s+[^>]*)?>/ig, "\n}}}");
-
-    // Start tags
-    richText = richText.replace(/<(?:b|strong)(?:\s+[^>]*)?>/ig, "{\\b\n");
-    richText = richText.replace(/<(?:i|em)(?:\s+[^>]*)?>/ig, "{\\i\n");
-    richText = richText.replace(/<(?:u|ins)(?:\s+[^>]*)?>/ig, "{\\ul\n");
-    richText = richText.replace(/<(?:strike|del)(?:\s+[^>]*)?>/ig, "{\\strike\n");
-    richText = richText.replace(/<sup(?:\s+[^>]*)?>/ig, "{\\super\n");
-    richText = richText.replace(/<sub(?:\s+[^>]*)?>/ig, "{\\sub\n");
-    richText = richText.replace(/<(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "{\\pard\n");
-
-    // End tags
-    richText = richText.replace(/<\/(?:p|div|section|article)(?:\s+[^>]*)?>/ig, "\n\\par}\n");
-    richText = richText.replace(/<\/(?:b|strong|i|em|u|ins|strike|del|sup|sub)(?:\s+[^>]*)?>/ig, "\n}");
-
-    // Strip any other remaining HTML tags [but leave their contents]
-    richText = richText.replace(/<(?:[^>]+)>/g, "");
-
-    // Prefix and suffix the rich text with the necessary syntax
-    richText =
-        "{\\rtf1\\ansi\n" + (hasHyperlinks ? "{\\colortbl\n;\n\\red0\\green0\\blue255;\n}\n" : "") + richText +
-        "\n}";
-
-    return richText;
-}
-
-
-
-
-
-
-
-// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
-// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
-// TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES TEMPLATES
+// TOP MENU TOP MENU TOP MENU TOP MENU
+// TOP MENU TOP MENU TOP MENU TOP MENU
+// TOP MENU TOP MENU TOP MENU TOP MENU
 
     // TRIGGERS TRIGGERS TRIGGERS
     // TRIGGERS TRIGGERS TRIGGERS
+      // These buttons correspond to the specialties inside each modality. When a modality button is clicked, these specialties are updated on the top most menu bar
     
     new Vue({
       el: '#usg_triggers',
@@ -223,6 +161,9 @@ function copyToClip(htmlStr, textStr) {
     // DROPDOWNDS DROPDOWNDS DROPDOWNDS
     // DROPDOWNDS DROPDOWNDS DROPDOWNDS
 
+    // these are the menus that drop down with the report titles for each specialty
+    // when clicked, they insert the template to the quill editor
+
 new Vue( {
   el: '#usg_dropdowns',
   data : {
@@ -261,25 +202,20 @@ new Vue( {
 });
 
 
-// MODALITY SELECTORS MODALITY SELECTORS
-// MODALITY SELECTORS MODALITY SELECTORS
-
-
-
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
 // CLICKS CLICKS CLICKS
-// click vue
+
+// inserts the collapsible menu where the clickable forms lie
 
 $("#form_div").html();
-
 
 collpasible_app = new Vue({ 
   el: '#app',
   mounted: function(){$('.collapsible').collapsible();},
   data: {
     cards: [
-      { title: '', src: '../images/ultrasound_icon.png', description:''}
+      { title: '', src: 'images/ultrasound_icon.png', description:''}
     ] 
   },
   methods : {
@@ -289,10 +225,6 @@ collpasible_app = new Vue({
     }
   }
   });
-
-
-
-  // $("#form_div").html(form_templates.ob_inicial);
 
 
 // DESCRIPTORS DESCRIPTORS DESCRIPTORS DESCRIPTORS
@@ -337,7 +269,7 @@ function format_descriptor(text) {
 v_descriptors_ul = new Vue( {
   el: '#descriptors_ul',
   data: {
-    selected_modality : 'tc',
+    selected_modality : 'usg',
     selected_specialty : 'cep',
     v_descriptors : descriptors.cep.modalities.tc.findings
   },

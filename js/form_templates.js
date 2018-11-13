@@ -44,17 +44,17 @@ form_templates = {
     
     <div class="col">
       <div class="fb-number form-group field-form_dbp">
-        <label for="form_dbp" class="fb-number-label">DBP</label>
-        <input type="number" placeholder="DBP (cm)" class="form-control" name="form_dbp" step="0.1" id="form_dbp"></div>
+        <label for="form_dbp" class="fb-number-label">DBP (mm)</label>
+        <input type="number" placeholder="DBP (mm)" class="form-control" name="form_dbp" step="0.1" id="form_dbp"></div>
       <div class="fb-number form-group field-form_cc">
-        <label for="form_cc" class="fb-number-label">CC</label>
-        <input type="number" placeholder="CC (cm)" class="form-control" name="form_cc" step="0.1" id="form_cc"></div>
+        <label for="form_cc" class="fb-number-label">CC (mm)</label>
+        <input type="number" placeholder="CC (mm)" class="form-control" name="form_cc" step="0.1" id="form_cc"></div>
       <div class="fb-number form-group field-form_ca">
-        <label for="form_ca" class="fb-number-label">CA</label>
-        <input type="number" placeholder="CA (cm)" class="form-control" name="form_ca" step="0.1" id="form_ca"></div>
+        <label for="form_ca" class="fb-number-label">CA (mm)</label>
+        <input type="number" placeholder="CA (mm)" class="form-control" name="form_ca" step="0.1" id="form_ca"></div>
       <div class="fb-number form-group field-form_cf">
-        <label for="form_cf" class="fb-number-label">CF</label>
-        <input type="number" placeholder="CF (cm)" class="form-control" name="form_cf" step="0.1" id="form_cf"></div>
+        <label for="form_cf" class="fb-number-label">CF (mm)</label>
+        <input type="number" placeholder="CF (mm)" class="form-control" name="form_cf" step="0.1" id="form_cf"></div>
     </div>
     
     <div class="col">
@@ -70,11 +70,11 @@ form_templates = {
       </div>
       
       <div class="fb-number form-group field-number-1540578047417">
-        <label for="number-1540578047417" class="fb-number-label">ILA</label>
-        <input type="number" placeholder="ILA (cm)" class="form-control" name="number-1540578047417" step="0.1" id="form_ila">
+        <label for="number-1540578047417" class="fb-number-label">ILA (mm)</label>
+        <input type="number" placeholder="ILA (mm)" class="form-control" name="number-1540578047417" step="0.1" id="form_ila">
       </div>
       <div class="input-field col">
-        <select id="form_apresentacao" class="form_select_init">
+        <select id="form_apresentacao" class="form_select_init" onchange="change_presentation()">
           <option value="***" disabled selected>...</option>
           <option value="cefálica">Cefálica</option>
           <option value="pélvica">Pélvica</option>
@@ -88,7 +88,7 @@ form_templates = {
           <option value="direita">Direita</option>
           <option value="esquerda">Esquerda</option>
         </select>
-        <label>Dorso</label>
+        <label id="form_dorso_label">Dorso</label>
       </div>
     </div>
     
@@ -109,16 +109,16 @@ form_templates = {
 
         <div class="fb-number form-group field-form_dbp form_sg">
           <label for="form_dbp" class="fb-number-label">SG 1 </label>
-          <input type="number" placeholder="SG 1 (cm)" class="form-control" name="form_dbp" step="0.1" id="form_sg1"></div>
+          <input type="number" placeholder="SG 1 (mm)" class="form-control" name="form_dbp" step="0.1" id="form_sg1"></div>
         <div class="fb-number form-group field-form_cc form_sg">
           <label for="form_cc" class="fb-number-label">SG 2</label>
-          <input type="number" placeholder="SG 2 (cm)" class="form-control" name="form_cc" step="0.1" id="form_sg2"></div>
+          <input type="number" placeholder="SG 2 (mm)" class="form-control" name="form_cc" step="0.1" id="form_sg2"></div>
         <div class="fb-number form-group field-form_ca form_sg">
           <label for="form_ca" class="fb-number-label">SG 3</label>
-          <input type="number" placeholder="SG 3 (cm)" class="form-control" name="form_ca" step="0.1" id="form_sg3"></div>
+          <input type="number" placeholder="SG 3 (mm)" class="form-control" name="form_ca" step="0.1" id="form_sg3"></div>
         <div class="fb-number form-group field-form_cf">
           <label for="form_cf" class="fb-number-label">CCN</label>
-          <input type="number" placeholder="CCN (cm)" class="form-control" name="form_ccn" step="0.1" id="form_ccn"></div>
+          <input type="number" placeholder="CCN (mm)" class="form-control" name="form_ccn" step="0.1" id="form_ccn"></div>
 
 
         <div class="fb-number form-group field-form_bcf">

@@ -10,10 +10,10 @@ Live demo at http://18.218.57.67/openlaudo/editor.html
 Html file for the single-page application.
 
 **form_templates.js:** <br>
-Contains the clickable forms for each report type. Each form (in html format) is a property of a JavaScript object called form_templates.
+Contains the clickable forms for each report type. Each form (in html format) is a property of a JavaScript object called form_templates. Note: the form_templates need to have the same name as in templates.js.
 
 **click_templates.js:**<br>
-Contains the functions tha run when a report from a clickable form is generated. These functions are responsible for getting the input values of the forms, making calculations and priting the resulting report to the Quill Editor.
+Contains the functions tha run when a report from a clickable form is generated. These functions are responsible for getting the input values of the forms, making calculations and priting the resulting report to the Quill Editor. Note: the functions need to have the same name as in templates.js.
 
 **sidebar.js:**<br>
 Main js file for the rendering of dynamic GUI content. Contains Vue functionsthat render menus and descriptors, and also functions to handle/insert the contet of the Quill editor;

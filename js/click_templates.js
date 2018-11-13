@@ -1,12 +1,12 @@
 submit_laudo = {
   ob_tardio: function () {
     try {
-      var DBP = $('#form_dbp')[0].value || "***";
-      var CC = $('#form_cc')[0].value || "***";
-      var CA = $('#form_ca')[0].value || "***";
-      var CF = $('#form_cf')[0].value || "***";
+      var DBP = ($('#form_dbp')[0].value / 10) || "***";
+      var CC = ($('#form_cc')[0].value / 10) || "***";
+      var CA = ($('#form_ca')[0].value / 10) || "***";
+      var CF = ($('#form_cf')[0].value / 10) || "***";
       var BCF = $('#form_bcf')[0].value || "***";
-      var ILA = $('#form_ila')[0].value || "***";
+      var ILA = ($('#form_ila')[0].value / 10) || "***";
       var bcf_ausente = $('#bcf_ausente')[0].checked;
       var dorso = $('#form_dorso').val();
       var apresentacao = $('#form_apresentacao').val();
@@ -17,6 +17,16 @@ submit_laudo = {
       console.warn("Error in ob_tardio calculus");
       console.warn(e);
     }
+    var dorso_label;
+    if (apresentacao == "córmica"){
+      dorso_label = "cabeça";
+    }
+    else {
+      dorso_label = "dorso";
+    }
+
+
+
     calculated_age = calculate_efw_and_gestational(DBP, CC, CA, CF);
     var efw = calculated_age.efw;
     var weeks = calculated_age.weeks;
@@ -79,7 +89,7 @@ submit_laudo = {
 
     quill.setContents([
       { insert: "ULTRASSONOGRAFIA OBSTÉTRICA\n\n", attributes: { bold: true, align: "center" } },
-      { insert: "Feto único, em  apresentação " + (apresentacao || "***") + ", com dorso à " + (dorso || "***") + "." + bcf_message + "\nPlacenta de localização ***, com aspecto compatível com grau *** de Grannum. Espessura de *** mm.\n\n", attributes: { bold: false } },
+      { insert: "Feto único, em  apresentação " + (apresentacao || "***") + ", com " + dorso_label + " à " + (dorso || "***") + "." + bcf_message + "\nPlacenta de localização ***, com aspecto compatível com grau *** de Grannum. Espessura de *** mm.\n\n", attributes: { bold: false } },
       { insert: "Parâmetros biométricos:\n", attributes: { bold: true } },
       { insert: "Diâmetro biparietal (DBP): " + (Fmt1(10 * DBP) || "***") + " mm.\nCircunferência cefálica (CC): " + (Fmt1(10 * CC) || "***") + " mm.\nCircunferência abdominal (CA): " + (Fmt1(10 * CA) || "***") + " mm.\nComprimento femoral (CF): " + (Fmt1(10 * CF) || "***") + " mm.\n" + efw_text + "\n\n", attributes: { bold: false } },
       { insert: "Líquido amniótico:\n", attributes: { bold: true } },
@@ -94,11 +104,11 @@ submit_laudo = {
 
   ob_inicial: function () {
 
-    var sg1 = parseFloat($("#form_sg1")[0].value);
-    var sg2 = parseFloat($("#form_sg2")[0].value);
-    var sg3 = parseFloat($("#form_sg3")[0].value);
+    var sg1 = parseFloat($("#form_sg1")[0].value ) / 10;
+    var sg2 = parseFloat($("#form_sg2")[0].value) / 10;
+    var sg3 = parseFloat($("#form_sg3")[0].value) / 10;
     var sg_mean = roundNumber((sg1 + sg2 + sg3) / 3, 1);
-    var ccn = parseFloat($("#form_ccn")[0].value);
+    var ccn = parseFloat($("#form_ccn")[0].value) / 10;
     var BCF = $('#form_bcf')[0].value || "***";
     var bcf_ausente = $('#bcf_ausente')[0].checked;
     var embriao_ausente = $('#embriao_ausente')[0].checked;
@@ -227,8 +237,8 @@ submit_laudo = {
 
 
 
-
-
+// HELPER FUNCTIONS   HELPER FUNCTIONS   HELPER FUNCTIONS   HELPER FUNCTIONS   
+// HELPER FUNCTIONS   HELPER FUNCTIONS   HELPER FUNCTIONS   HELPER FUNCTIONS   
 
 
 
@@ -1136,4 +1146,15 @@ function computeEFWPercentile(MAWeeks, MADays, Measured) {
 function roundNumber(num, dec) {
   var result = Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
   return result;
+}
+
+// if user changes presentation, change "side of back" to "side of head"
+function change_presentation() {
+  var apresentacao = $('#form_apresentacao').val();
+  if (apresentacao == "córmica") {
+    $('#form_dorso_label').html('Cabeça');
+  }
+  else {
+    $('#form_dorso_label').html('Dorso');
+  }
 }

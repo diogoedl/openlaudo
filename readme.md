@@ -2,7 +2,7 @@
 Web tool for radiology report editing
 
 
-Live demo at http://18.218.57.67/openlaudo/editor.html
+Live demo at https://diogoedl.github.io/openlaudo/editor.html or http://bit.ly/openlaudo
 
 ## Files Overview
 

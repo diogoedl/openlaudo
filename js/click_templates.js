@@ -150,7 +150,7 @@ submit_laudo = {
 
 
     if (embriao_ausente) {
-      GAdays = (sg_mean + 30);
+      GAdays = ((sg_mean*10) + 30);
       GA = GAdays / 7;
 
       bcf_message = "Embrião não caracterizado neste estudo.";
@@ -211,6 +211,10 @@ submit_laudo = {
   },
 
   aparelho: function () {
+
+  },
+
+  escrotal: function(){
 
   }
 

@@ -70,6 +70,11 @@
   padding-left: 10px;
 }
 
+.collapsible-body {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
 
 html, body {
   overflow: scroll;
@@ -78,6 +83,10 @@ html, body {
 
 #two_col_row {
   height: 72%;
+}
+
+.row {
+  margin-bottom: 2px;
 }
 
 #editor {

@@ -285,8 +285,8 @@
                 "name": "abdome_e_pelve",
                 "nickname": "TC ABDOME E PELVE",
                 "title": "TOMOGRAFIA COMPUTADORIZADA DE ABDOME E PELVE",
-                "tecnique": "Obtidas imagens axiais por metodologia multislice, -------------antes e após a injeçãointravenosa do meio de contraste. ---------------------------Administrado previamente contraste iodado diluído por via oral",
-                "body": "Fígado de dimensões normais, contornos regulares, com atenuação preservada, sem evidência de lesões focais. Veia porta pérvia. \nAusência de dilatação de vias biliares. \nPâncreas, baço e adrenais sem particularidades. \nRins tópicos de dimensões normais, contornos regulares, com espessura do parênquima sem alterações significativas. Concentração e eliminação satisfatória do contraste. Não há evidência de cálculos ou dilatação do sistema coletor. \nAusência de linfonodomegalias abdominais ou de líquido livre. \nAorta de trajeto e calibre preservados. \nBexiga com boa repleção, paredes regulares e conteúdo homogêneo.",
+                "tecnique": "Obtidas imagens axiais por metodologia multislice, -------------antes e após a injeção intravenosa do meio de contraste. ------------Administrado previamente contraste iodado diluído por via oral",
+                "body": "Fígado de dimensões normais, contornos regulares, com atenuação preservada, sem evidência de lesões focais. Veia porta pérvia. \nAusência de dilatação de vias biliares. \nPâncreas, baço e adrenais sem particularidades. \nRins tópicos de dimensões normais, contornos regulares, com espessura do parênquima sem alterações significativas. Não há evidência de cálculos ou dilatação do sistema coletor. \nAusência de linfonodomegalias abdominais ou de líquido livre. \nAorta de trajeto e calibre preservados. \nBexiga com boa repleção, paredes regulares e conteúdo homogêneo.",
                 "conc": ""
               },
               "abdome_e_pelve_litiase": {
@@ -426,7 +426,7 @@
                 "nickname": "TC FACE",
                 "title": "TOMOGRAFIA COMPUTADORIZADA DA FACE",
                 "tecnique": "Imagens obtidas por aquisição volumétrica \"multislice\" ------após a administração intravenosa do meio de contraste iodado",
-                "body": "Imagens obtidas por aquisição volumétrica \"multislice\" após a administração intravenosa do meio de contraste iodado.\nAnálise:\nAspecto normal das estruturas intraorbitárias.\nCavidades paranasais normoaeradas.\nEstruturas da rino e orofaringe com atenuação preservada.\nGlândulas parótidas e submandibulares sem alterações.\nNão se evidenciam linfonodomegalias.\nEstruturas ósseas preservadas.\nNão se observam realces anômalos.",
+                "body": "Aspecto normal das estruturas intraorbitárias.\nCavidades paranasais normoaeradas.\nEstruturas da rino e orofaringe com atenuação preservada.\nGlândulas parótidas e submandibulares sem alterações.\nNão se evidenciam linfonodomegalias.\nEstruturas ósseas preservadas.\nNão se observam realces anômalos.",
                 "conc": ""
               },
               "pescoco": {

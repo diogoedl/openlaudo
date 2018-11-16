@@ -190,7 +190,7 @@ submit_laudo = {
 
     var biometria_message = "Biometria atual compatível com " + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural + " (variação de até +/- " + variacao + " dias) (Hadlock et al).";
     if (embriao_ausente) {
-      biometria_message = "Biometria atual compatível com " + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural + ". (obs: o cálculo da idade gestacional é pouco acurado na ausência de embrião e deve ser repetido para datação)).";
+      biometria_message = "Biometria atual compatível com " + (weeks || "***") + " semanas e " + (days || "***") + " dia" + days_plural + ". (obs: o cálculo da idade gestacional é pouco acurado na ausência de embrião e deve ser repetido para datação).";
     }
 
     var adendo = '';

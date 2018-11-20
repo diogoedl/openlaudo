@@ -104,9 +104,9 @@ submit_laudo = {
 
   ob_inicial: function () {
 
-    var sg1 = parseFloat($("#form_sg1")[0].value ) / 10;
-    var sg2 = parseFloat($("#form_sg2")[0].value) / 10;
-    var sg3 = parseFloat($("#form_sg3")[0].value) / 10;
+    var sg1 = parseFloat($("#form_sg1")[0].value );
+    var sg2 = parseFloat($("#form_sg2")[0].value);
+    var sg3 = parseFloat($("#form_sg3")[0].value);
     var sg_mean = roundNumber((sg1 + sg2 + sg3) / 3, 1);
     var ccn = parseFloat($("#form_ccn")[0].value) / 10;
     var BCF = $('#form_bcf')[0].value || "***";
@@ -150,7 +150,7 @@ submit_laudo = {
 
 
     if (embriao_ausente) {
-      GAdays = ((sg_mean*10) + 30);
+      GAdays = ((sg_mean) + 30);
       GA = GAdays / 7;
 
       bcf_message = "Embrião não caracterizado neste estudo.";
@@ -200,7 +200,7 @@ submit_laudo = {
 
     quill.setContents([
       { insert: "ULTRASSONOGRAFIA OBSTÉTRICA INICIAL\n\n", attributes: { bold: true, align: "center" } },
-      { insert: "Útero aumentado de volume, contendo saco gestacional tópico, de contornos regulares, medindo " + (sg1 * 10 || "***") + " x " + (sg2 * 10 || "***") + " x " + (sg3 * 10 || "***") + " mm (média de " + (sg_mean * 10 || "***") + " mm).\n" + bcf_message + "\n" + vesicula_message + "\nAusência de sinais de descolamento ovular.\nColo uterino de aspecto habitual, com comprimento de *** mm.\nOvários de aspecto habitual.Corpo lúteo em ovário direito / esquerdo.", attributes: { bold: false } },
+      { insert: "Útero aumentado de volume, contendo saco gestacional tópico, de contornos regulares, medindo " + (Fmt1(sg1) || "***") + " x " + (Fmt1(sg2) || "***") + " x " + (Fmt1(sg3) || "***") + " mm (média de " + (Fmt1(sg_mean) || "***") + " mm).\n" + bcf_message + "\n" + vesicula_message + "\nAusência de sinais de descolamento ovular.\nColo uterino de aspecto habitual, com comprimento de *** mm.\nOvários de aspecto habitual.Corpo lúteo em ovário direito / esquerdo.", attributes: { bold: false } },
       { insert: "\n\nConclusão:", attributes: { bold: true } },
       { insert: "\n" + bcf_conc + "\n" + biometria_message + "\n\n" + adendo }
 
@@ -1087,7 +1087,8 @@ function Fmt1(x) {
 function Fmt2(x) {
   var v
   if (x >= 0) { v = '' + (x + 0.00005) } else { v = '' + (x - 0.00005) }
-  return v.substring(0, v.indexOf('.') + 3)
+  v = v.replace('.', ',');
+  return v.substring(0, v.indexOf(',') + 3)
 }
 
 function computeEFWPercentile(MAWeeks, MADays, Measured) {

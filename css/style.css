@@ -123,3 +123,7 @@ html, body {
 .fb-number-label {
   margin-bottom: 0px;
 }
+
+label {
+  margin-bottom: 0px;
+}

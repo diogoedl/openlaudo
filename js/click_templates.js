@@ -210,6 +210,60 @@ submit_laudo = {
 
   },
 
+  transvaginal: function (){
+    var utero1 = $('#form_utero1').val();
+    var utero2 = $('#form_utero2').val();
+    var utero3 = $('#form_utero3').val();
+    var uteroPos = ($('#form_utero_posicao').val() || "***");
+
+    var od1 = $('#form_od_1').val();
+    var od2 = $('#form_od_2').val();
+    var od3 = $('#form_od_3').val();
+    var odAusente = $("#form_od_ausente")[0].checked;
+
+    var oe1 = $('#form_oe_1').val();
+    var oe2 = $('#form_oe_2').val();
+    var oe3 = $('#form_oe_3').val();
+    var oeAusente = $("#form_oe_ausente")[0].checked;
+
+    var uteroVol = (utero1*utero2*utero3*0.523);
+    var odVol = od1*od2*od3*0.523;
+    var oeVol = oe1*oe2*oe3*0.523;
+
+    var uteroStr = "Dimensões do útero: " + Fmt1(utero1) + " x " + Fmt1(utero2) + " x " + Fmt1(utero3) + " cm. Volume estimado de " + Fmt1(uteroVol) + " cm³.";
+    var odStr = "Dimensões: " + Fmt1(od1) + " x " + Fmt1(od2) + " x " + Fmt1(od3) + " cm. Volume estimado de " + Fmt1(odVol) + " cm³.";
+    var oeStr = "Dimensões: " + Fmt1(oe1) + " x " + Fmt1(oe2) + " x " + Fmt1(oe3) + " cm. Volume estimado de " + Fmt1(oeVol) + " cm³.";
+
+
+    var ovsStr;
+    ovsStr = "Ovário direito tópico, de contornos regulares e dimensões normais. Ecotextura do parênquima característica.\n" + odStr + "\nOvário esquerdo tópico, de contornos regulares e dimensões normais. Ecotextura do parênquima característica.\n" + oeStr;
+    if (odAusente) {
+      ovsStr = "Ovário direito não caracterizado. Região anexial direita sem particularidades.\n\nOvário esquerdo tópico, de contornos regulares e dimensões normais. Ecotextura do parênquima característica.\n" + oeStr;
+    }
+    if (oeAusente){
+      ovsStr = "Ovário direito tópico, de contornos regulares e dimensões normais. Ecotextura do parênquima característica.\n" + odStr + "\nOvário esquerdo não caracterizado. Região anexial esquerda sem particularidades.";
+    }
+    if (odAusente && oeAusente) {
+      ovsStr = "Ovários não caracterizados.\nRegiões anexiais sem particularidades.";
+    }
+    
+
+
+    var conc = "Exame sem alterações significativas.";
+
+
+    quill.setContents([
+      { insert: "ULTRASSONOGRAFIA PÉLVICA VIA TRANSVAGINAL\n\n", attributes: { bold: true, align: "center" } },
+      { insert: "Útero em " + uteroPos + ", de contornos regulares e dimensões normais. Ecotextura do parênquima preservada.\n" + uteroStr + "\nEndométrio centrado e homogêneo, com espessura de cm.\nCavidade uterina virtual.\n" + ovsStr + "\nAusência de líquido livre ou coleções.", attributes: { bold: false } },
+      { insert: "\n\nConclusão:", attributes: { bold: true } },
+      { insert: "\n" +  conc}
+
+
+    ]);
+
+
+  },
+
   aparelho: function () {
 
   },

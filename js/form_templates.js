@@ -315,7 +315,127 @@ form_templates = {
       </div>
     </div>
 </form>
-  `
+  `,
+
+  transvaginal:
+   `<form id="rendered-form">
+   <div class="rendered-form">
+     <div class="">
+       <h3 id="control-4928516">Transvaginal (em desenvolvimento)</h3>
+     </div>
+
+     <!-- utero -->
+     <div class="row">
+       <div class="col" style="padding:2px;">
+         <div>
+           <h5>Útero</h3>
+         </div>
+         <div class="row">
+           
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="input-field col">
+                   <select id="form_utero_posicao" class="form_select_init">
+                     <option value="***" disabled selected>...</option>
+                     <option value="anteversoflexão">anteversoflexão</option>
+                     <option value="retroversoflexão">retroversoflexão</option>
+                     <option value="medioversão">medioversão</option>
+                   </select>
+                   <label>Posição</label>
+                 </div>
+               </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_utero1">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_utero2">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_utero3">
+           </div>
+         </div>
+         <div>
+           <ul class="collapsible popout">
+             <li style="margin:0px;">
+               <div class="collapsible-header" style="padding:4  px;"><span class="headline white--text" style="margin-top:0px;">Achados (útero) (em desenvolvimento)</span>
+               </div>
+               <div class="collapsible-body white" style="padding-bottom:1px;">
+                 <div class="inputGroup">
+                   <label>
+                     <input type="checkbox" id="bcf_ausente" class="filled-in" />
+                     <span>Mioma</span>
+                   </label>
+                 </div>
+               </div>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <!-- ovario direito -->
+     <div class="row">
+       <div class="col" style="padding:2px;">
+         <div>
+           <h5>Ovário direito</h3>
+         </div>
+         <label>
+           <input type="checkbox" id="form_od_ausente" class="filled-in" />
+           <span>Não caracterizado</span>
+         </label>
+         <div class="row">
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_od_1">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_od_2">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_od_3">
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- ovario esquerdo -->
+     <div class="row">
+       <div class="col" style="padding:2px;">
+         <div>
+           <h5>Ovário esquerdo</h3>
+         </div>
+         <label>
+           <input type="checkbox" id="form_oe_ausente" class="filled-in" />
+           <span>Não caracterizado</span>
+         </label>
+         <div class="row">
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_oe_1">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_oe_2">
+           </div>
+           <div class="col">
+             <input type="number" placeholder="(cm)" class="form-control" step="0.1" id="form_oe_3">
+           </div>
+         </div>
+         <div>
+           <ul class="collapsible popout">
+             <li style="margin:0px;">
+               <div class="collapsible-header" style="padding:4  px;"><span class="headline white--text" style="margin-top:0px;">Achados (ovários) (em desenvolvimento)</span>
+               </div>
+               <div class="collapsible-body white" style="padding-bottom:1px;">
+                 <div class="inputGroup">
+                   <label>
+                     <input type="checkbox" id="bcf_ausente" class="filled-in" />
+                     <span>Cisto</span>
+                   </label>
+                 </div>
+               </div>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </div>
+ </form>`,
 
 
 

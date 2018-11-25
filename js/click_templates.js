@@ -1170,7 +1170,9 @@ function computeEFWPercentile(MAWeeks, MADays, Measured) {
   var Found = false
 
   var Item = Zscore;
-
+  
+  Item = Item.replace(",", ".");
+  
   for (Count = 1; Count <= Idx3[0]; Count++) {
 
     if (Item == Idx3[Count]) {
